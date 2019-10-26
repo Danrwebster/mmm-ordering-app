@@ -1,0 +1,36 @@
+<mat-card id="card-container">
+	<mat-card-content class="mat-elevation-z2">
+		<form class="form-container" [formGroup]="loginForm">
+			<mat-form-field>
+				<input matInput placeholder="Enter User Name" formControlName="userName"
+					(focus)="clearError('userName')" required>
+				<mat-error *ngIf="userNameInvalid">Invalid User Name</mat-error>
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+					formControlName="password" (focus)="clearError('password')" required>
+				<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+				<mat-error *ngIf="passwordInvalid">Invalid username/password</mat-error>
+			</mat-form-field>
+		</form>
+
+		<form class="flex-container button" [formGroup]="loginForm" (ngSubmit)="signIn()">
+			<button class="mat-elevation-z2" mat-flat-button color="accent" [disabled]="!enableSignIn()" type="submit">
+				<ng-container *ngIf="!loading">
+					Login
+				</ng-container>
+				<ng-container *ngIf="loading">
+					<mat-spinner [diameter]="'20'"></mat-spinner>
+				</ng-container>
+			</button>
+			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button" routerLink="/topMenu">Guest</button>
+		</form>
+
+		<div class="flex-container secondary">
+			<button mat-button disabled>Forgot Password?</button>
+			<span>&bull;</span>
+			<button mat-button color="accent" disabled>Create Account</button>
+		</div>
+	</mat-card-content>
+</mat-card>

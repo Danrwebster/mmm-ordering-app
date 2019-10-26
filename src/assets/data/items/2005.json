@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Loaded Hummus",
+        "id": "2005"
+    },
+    "options": [
+        {
+            "sku": "2005A",
+            "priceLevel": {
+                "formattedPrice": "$14",
+                "value": 14.00
+            }
+        }
+    ],
+    "description": "House-made hummus topped with feta, grape tomatoes, cucumber, beets, red onion, roasted red pepper, & green onions. Served with naan bread & tortilla chips.",
+    "myMenu": false
+}

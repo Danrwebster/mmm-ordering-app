@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Chicken Fingers",
+        "id": "2001"
+    },
+    "options": [
+        {
+            "sku": "2001A",
+            "priceLevel": {
+                "formattedPrice": "$15.50",
+                "value": 15.50
+            }
+        }
+    ],
+    "description": "Breaded chicken strips, fries, & sweet chili sauce.",
+    "myMenu": false
+}

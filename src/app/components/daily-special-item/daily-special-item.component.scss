@@ -1,0 +1,64 @@
+@import "variables";
+
+.container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    border-radius: 4px;
+    background-color: #EEEEEE;
+}
+
+h1 {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    // font-family: league-gothic, sans-serif;
+    // font-weight: 400;
+    // font-style: normal;
+    font-size: 24px;
+    color: $dark-text;
+}
+
+h2 {
+    height: auto;
+    margin: 0;
+    span {
+        margin: 0;
+        padding: 0;
+        // font-family: league-gothic, sans-serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 22px;
+        color: $med-dark-text;
+    }
+}
+
+p {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    // font-family: adobe-garamond-pro, serif;
+    // font-weight: 400;
+    // font-style: normal;
+    font-size: 18px;
+    color: $dark-text;
+}
+
+hr {
+    margin: 10px 0 0;
+    width: 100%;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.2);
+    border-color: $primary-border;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.price-option {
+    &:not(:last-of-type)::after {
+        content: "\2022";
+    }
+}

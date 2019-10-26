@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "White Wine",
+        "id": "1400"
+    },
+    "options": [
+        {
+            "sku": "1400A",
+            "priceLevel": {
+                "formattedPrice": "$5.25",
+                "value": 5.25
+            }
+        }
+    ],
+    "description": "White wine in a glass",
+    "myMenu": false
+}

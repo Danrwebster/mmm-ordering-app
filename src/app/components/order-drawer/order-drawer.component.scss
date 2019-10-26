@@ -1,0 +1,137 @@
+@import "variables";
+
+#container {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    background-color: $primary-dark;
+    color: $light-text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100vh);
+    animation: slide-up 0.2s ease-out 0.1s 1 forwards;
+
+    .drawer-container {
+        width: 90%;
+        max-width: 780px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    mat-expansion-panel {
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+
+        mat-expansion-panel-header {
+            background-color: $primary-dark;
+            // font-family: league-gothic, sans-serif;
+            // font-weight: 400;
+            // font-style: normal;
+            font-size: 18px;
+            color: $light-text;
+
+            mat-icon {
+                transition-duration: 0.3s;
+                transition-property: transform;
+            }
+
+            &.mat-expanded {
+                mat-icon {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+mat-accordion {
+    width: 100%;
+    border-radius: 0;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+
+    button {
+        flex: 0 0 48%;
+        margin: 0 0 10px;
+        height: 50px;
+
+        &:first-child {
+            margin-right: auto;
+        }
+    }
+}
+
+.order-line-item {
+    display: flex;
+    // font-family: adobe-garamond-pro, serif;
+    // font-weight: 400;
+    // font-style: normal;
+    font-size: 16px;
+    color: $light-text;
+
+    .title {
+        flex: 1 0 auto;
+    }
+
+    .value {
+        flex: 0 0 auto;
+    }
+
+    &.modifier {
+        margin-left: 20px;
+    }
+}
+
+.order-sub-total {
+    width: 100%;
+    margin: 5px 0;
+    display: flex;
+    justify-content: flex-end;
+
+    .title {
+        margin-right: 10px;
+        // font-family: adobe-garamond-pro, serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 16px;
+        color: $light-text;
+    }
+
+    .value {
+        // font-family: adobe-garamond-pro, serif;
+        // font-weight: bold;
+        // font-style: normal;
+        font-size: 16px;
+        color: $light-text;
+    }
+}
+
+.mat-expansion-indicator {
+    transform: rotateX(180);
+}
+
+::ng-deep {
+    #container {
+        .mat-content {
+            align-items: center;
+        }
+    }
+}

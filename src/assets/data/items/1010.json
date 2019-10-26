@@ -1,0 +1,34 @@
+{
+    "descriptor": {
+        "title": "Phillips Blue Buck",
+        "id": "1010"
+    },
+    "options": [
+        {
+            "sku": "1010A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$6.25",
+                "value": 6.25
+            }
+        },
+        {
+            "sku": "1010B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$8.75",
+                "value": 8.75
+            }
+        },
+        {
+            "sku": "1010C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$10.75",
+                "value": 10.75
+            }
+        }
+    ],
+    "description": "5.5%alc/vol Nova Scotia",
+    "myMenu": false
+}

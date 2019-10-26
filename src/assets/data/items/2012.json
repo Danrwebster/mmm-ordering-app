@@ -1,0 +1,190 @@
+{
+    "descriptor": {
+        "title": "T’n’T Wings",
+        "id": "2012"
+    },
+    "options": [
+        {
+            "sku": "2012A",
+            "priceLevel": {
+                "formattedPrice": "$16",
+                "value": 16.00
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Dip",
+            "modifiers": [
+                {
+                    "sku": "2012CA",
+                    "name": "Ranch"
+                },
+                {
+                    "sku": "2012CB",
+                    "name": "Blue Cheese"
+                }
+            ],
+            "min": 1,
+            "max": 1
+        },
+        {
+            "groupName": "Flavours",
+            "modifiers": [
+                {
+                    "sku": "2012AAF",
+                    "name": "Plain"
+                },
+                {
+                    "sku": "2012AA",
+                    "name": "BBQ Sauce"
+                },
+                {
+                    "sku": "2012AB",
+                    "name": "Blue Buffalo"
+                },
+                {
+                    "sku": "2012AC",
+                    "name": "Electric Honey"
+                },
+                {
+                    "sku": "2012AD",
+                    "name": "Honey Garlic"
+                },
+                {
+                    "sku": "2012AE",
+                    "name": "Honey Hot"
+                },
+                {
+                    "sku": "2012AF",
+                    "name": "Honey Sriracha"
+                },
+                {
+                    "sku": "2012AG",
+                    "name": "Hot"
+                },
+                {
+                    "sku": "2012AH",
+                    "name": "Hot Caesar"
+                },
+                {
+                    "sku": "2012AI",
+                    "name": "Hot Ranch"
+                },
+                {
+                    "sku": "2012AJ",
+                    "name": "Maple Bacon"
+                },
+                {
+                    "sku": "2012AK",
+                    "name": "Marinara"
+                },
+                {
+                    "sku": "2012AL",
+                    "name": "Mild"
+                },
+                {
+                    "sku": "2012AM",
+                    "name": "Mild Caesar"
+                },
+                {
+                    "sku": "2012AN",
+                    "name": "Mild Ranch"
+                },
+                {
+                    "sku": "2012AO",
+                    "name": "Medium"
+                },
+                {
+                    "sku": "2012AP",
+                    "name": "Jalapeno Ranch"
+                },
+                {
+                    "sku": "2012AQ",
+                    "name": "Medium Ranch"
+                },
+                {
+                    "sku": "2012AR",
+                    "name": "Sweet Chili"
+                },
+                {
+                    "sku": "2012AS",
+                    "name": "Suicide Sauce"
+                },
+                {
+                    "sku": "2012AT",
+                    "name": "Teriyaki"
+                },
+                {
+                    "sku": "2012AU",
+                    "name": "Teri-Hot"
+                },
+                {
+                    "sku": "2012AV",
+                    "name": "Thai Peanut"
+                },
+                {
+                    "sku": "2012AW",
+                    "name": "Dry BBQ"
+                },
+                {
+                    "sku": "2012AX",
+                    "name": "Chipotle Mango"
+                },
+                {
+                    "sku": "2012AY",
+                    "name": "Jalapeno Cheddar"
+                },
+                {
+                    "sku": "2012AZ",
+                    "name": "Ketchup"
+                },
+                {
+                    "sku": "2012AAA",
+                    "name": "Sweet Mesquite"
+                },
+                {
+                    "sku": "2012AAB",
+                    "name": "Tangy Gold"
+                },
+                {
+                    "sku": "2012AAC",
+                    "name": "Dill Pickle"
+                },
+                {
+                    "sku": "2012AAD",
+                    "name": "Garlic Parm"
+                },
+                {
+                    "sku": "2012AAE",
+                    "name": "Lemon Pepper"
+                },
+                {
+                    "sku": "2012AAG",
+                    "name": "Salt 'n' Pepper"
+                },
+                {
+                    "sku": "2012AAH",
+                    "name": "Salt 'n' Vinegar"
+                }
+            ],
+            "min": 1,
+            "max": 1
+        },
+        {
+            "groupName": "Sides",
+            "modifiers": [
+                {
+                    "sku": "2004BA",
+                    "name": "Carrots 'n' celery",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                }
+            ]
+        }
+    ],
+    "description": "1lb of our number one rated chicken wings with ranch or blue cheese dip. Available in 34 flavours!",
+    "myMenu": false
+}

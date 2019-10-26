@@ -1,0 +1,117 @@
+{
+    "title": "My Mobile Menu",
+    "imageURL": "",
+    "footerImage": "url",
+    "categories": [
+        {
+            "descriptor": {
+                "title": "Draught Beer",
+                "id": "10"
+            },
+            "menuItems": [
+                {
+                    "descriptor": {
+                        "title": "Erdinger Dunkel",
+                        "id": "1004"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$7.25",
+                                "value": 7.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$9.95",
+                                "value": 9.95
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$11.95",
+                                "value": 11.95
+                            }
+                        }
+                    ],
+                    "description": "5.3%alc/vol Germany. Elegant deep dark brown wheat beer with a hint of caramel, nuts and fresh bread",
+                    "myMenu": true
+                },
+                {
+                    "descriptor": {
+                        "title": "Erdinger Weissbier",
+                        "id": "1005"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$7.25",
+                                "value": 7.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$9.95",
+                                "value": 9.95
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$11.95",
+                                "value": 11.95
+                            }
+                        }
+                    ],
+                    "description": "5.3%alc/vol Germany. Gentle spicy and yeast aromas blend with mildly bitter hops in this classic wheat beer",
+                    "myMenu": true
+                }
+            ]
+        },
+        {
+            "descriptor": {
+                "title": "Burgers 'n' Sandwiches",
+                "id": "21"
+            },
+            "menuItems": [
+                {
+                    "descriptor": {
+                        "title": "Angry Burger",
+                        "id": "2100"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$17.25",
+                                "value": 17.25
+                            }
+                        }
+                    ],
+                    "description": "6oz fresh Alberta beef patty, banana peppers, jalapeños, cheddar, lettuce, tomato, onion, pickle, & burger sauce. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": true
+                },
+                {
+                    "descriptor": {
+                        "title": "Brisket Grilled Cheese",
+                        "id": "2102"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$16.75",
+                                "value": 16.75
+                            }
+                        }
+                    ],
+                    "description": "House smoked brisket, whiskey onions, nacho cheese, & bacon jam on grilled sourdough. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": true
+                }
+            ]
+        }
+    ]
+}

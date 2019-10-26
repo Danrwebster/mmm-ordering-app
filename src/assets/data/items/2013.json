@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Toad Stools",
+        "id": "2013"
+    },
+    "options": [
+        {
+            "sku": "2013A",
+            "priceLevel": {
+                "formattedPrice": "$15.50",
+                "value": 15.50
+            }
+        }
+    ],
+    "description": "Roasted mushroom caps stuffed with shrimp, red pepper, artichoke, spinach & cream cheese mix. Topped with mozzarella & broiled bubbly hot & served with grilled sourdough.",
+    "myMenu": false
+}

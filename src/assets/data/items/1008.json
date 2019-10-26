@@ -1,0 +1,34 @@
+{
+    "descriptor": {
+        "title": "Kokanee Gold",
+        "id": "1008"
+    },
+    "options": [
+        {
+            "sku": "1008A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$6.25",
+                "value": 6.25
+            }
+        },
+        {
+            "sku": "1008B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$8.75",
+                "value": 8.75
+            }
+        },
+        {
+            "sku": "1008C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$10.75",
+                "value": 10.75
+            }
+        }
+    ],
+    "description": "5.3%alc/vol BC. Smooth, clean and lightly hopped",
+    "myMenu": false
+}

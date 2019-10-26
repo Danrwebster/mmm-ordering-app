@@ -1,0 +1,34 @@
+{
+    "descriptor": {
+        "title": "Strongbow Cider",
+        "id": "1014"
+    },
+    "options": [
+        {
+            "sku": "1014A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$7.25",
+                "value": 7.25
+            }
+        },
+        {
+            "sku": "1014B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$9.95",
+                "value": 9.95
+            }
+        },
+        {
+            "sku": "1014C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$11.95",
+                "value": 11.95
+            }
+        }
+    ],
+    "description": "5.3%alc/vol England. Crisp and dry and very refreshing",
+    "myMenu": false
+}

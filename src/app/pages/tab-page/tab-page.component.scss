@@ -1,0 +1,157 @@
+@import "variables";
+@import "mixins";
+
+.splash-banner {
+    height: 100px;
+    width: 780px;
+    margin: 0 auto 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-accent;
+    // background-image: url("../../../assets/images/drinks-splash-bg.jpg");
+    // background-position: center;
+    // background-size: 100%;
+    // background-repeat: no-repeat;
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 0 0 15px;
+    }
+
+
+    &::after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .menu-title {
+        z-index: 1;
+        // font-family: league-gothic, sans-serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 45px;
+        // color: $light-text;
+    }
+}
+
+.container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .spacer {
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        content: "";
+        width: 780px;
+        height: 215px;
+
+        @include breakpoint(tablet) {
+            width: auto;
+            margin: 0 0 15px;
+        }
+    }
+}
+
+.menu-item {
+    width: 780px;
+    margin: 0 auto 15px;
+    border: solid 1px $primary-border;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    // font-family: adobe-garamond-pro, serif;
+    // font-weight: 400;
+    // font-style: normal;
+    font-size: 16px;
+    color: $dark-text;
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 0 15px 15px;
+    }
+}
+
+.line-item {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0 10px;
+
+    &:first-child {
+        margin-top: 10px;
+    }
+
+    &:last-child {
+        margin-bottom: 10px 
+    }
+
+    .title {
+        font-weight: bold;
+
+        span {
+            &::before {
+                content: "\2022";
+            }
+        }
+    }
+
+    .modifier {
+        margin-left: 20px;
+    }
+}
+
+.subTotal {
+    // &::before {
+    //     margin: 15px 0;
+    //     height: 1px;
+    //     display: block;
+    //     content: "";
+    //     border-bottom-style: solid;
+    //     border-bottom-width: 1px;
+    //     border-bottom-color: $primary-border;
+    // }
+
+    .line-total {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        // font-family: adobe-garamond-pro, serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 16px;
+        color: $dark-text;
+
+        span {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    }
+}
+
+.footer {
+    // background: linear-gradient(to bottom, rgba(238, 238, 238, 0) 0%, rgba(238, 238, 238, 1) 10%, rgba(238, 238, 238, 1) 100%);
+    background-color: #EEEEEE;
+    position: fixed;
+    bottom: 0;
+
+    button {
+        width: 780px;
+        margin: 15px auto;
+        height: 50px;
+
+        @include breakpoint(tablet) {
+            width: auto;
+            margin: 15px;
+        }
+    }
+}

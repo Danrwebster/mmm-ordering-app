@@ -1,0 +1,52 @@
+<div id="global-container" [class.noScroll]="showModal">
+    <mat-sidenav-container class="sidenav-container" (backdropClick)="togglesideNav(false)">
+        <mat-sidenav #sidenav class="sidenav" [opened]="showSideNav" [mode]="'over'" [fixedInViewport]="'true'"
+            (openedStart)="selectedTab = 0">
+            <mat-tab-group class="sidenav-tab" [selectedIndex]="selectedTab">
+                <mat-tab>
+                    <mat-list>
+                        <mat-list-item class="main">
+                            <div routerLink="/topMenu" routerLinkActive="active" (click)="togglesideNav(false)">Toad 'n' Turtle Menu</div><button mat-button (click)="selectedTab = 1"><mat-icon class="drill-down">keyboard_arrow_right</mat-icon></button>
+                        </mat-list-item>
+                        <mat-list-item routerLink="/myMobileMenu" [class.disabled]="!isAuthenticated"
+                            routerLinkActive="active" (click)="togglesideNav(false)">
+                            My Mobile Menu
+                        </mat-list-item>
+                        <mat-list-item routerLink="/service" routerLinkActive="active" (click)="togglesideNav(false)">
+                            Request Service
+                        </mat-list-item>
+                        <!-- <mat-list-item routerLink="/history" [class.disabled]="!isAuthenticated"
+                            routerLinkActive="active" (click)="togglesideNav(false)">
+                            Order History
+                        </mat-list-item> -->
+                        <mat-list-item routerLink="/about" routerLinkActive="active" (click)="togglesideNav(false)">
+                            About
+                        </mat-list-item>
+                        <hr>
+                        <mat-list-item routerLink="/login" [class.disabled]="!isAuthenticated" (click)="logout()">
+                            Logout
+                        </mat-list-item>
+                    </mat-list>
+                </mat-tab>
+                <mat-tab>
+                    <mat-list *ngIf="showSideNav">
+                        <mat-list-item class='active main' (click)="selectedTab = 0">
+                            <button mat-button><mat-icon>keyboard_arrow_left</mat-icon></button><div>Menu</div>
+                        </mat-list-item>
+                        <ng-container *ngIf="menuCategories.length > 0">
+                            <mat-list-item *ngFor="let category of menuCategories"
+                                [routerLink]="['/menu', category.descriptor.id]" (click)="togglesideNav(false)">
+                                {{category.descriptor.title}}</mat-list-item>
+                        </ng-container>
+                    </mat-list>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-sidenav>
+        <mat-sidenav-content id="content" [class.noScroll]="showModal">
+            <router-outlet (activate)="onActivate($event)"></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+<app-nav-bar (sideNav)="togglesideNav($event)"></app-nav-bar>
+<app-item-details-modal *ngIf="showModal" [item]="menuItem" (cancel)="closeModal(true)"></app-item-details-modal>
+<app-confirmation-modal *ngIf="showConfirmationModal" [modalConfig]="modalConfig"></app-confirmation-modal>

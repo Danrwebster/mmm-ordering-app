@@ -1,0 +1,50 @@
+@import "variables";
+@import "mixins";
+
+.splash-banner {
+    height: 100px;
+    width: 780px;
+    margin: 0 auto 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-accent;
+    // background-image: url("../../../assets/images/drinks-splash-bg.jpg");
+    // background-position: center;
+    // background-size: 100%;
+    // background-repeat: no-repeat;
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 0 0 15px;
+    }
+
+
+    &::after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .menu-title {
+        z-index: 1;
+        // font-family: league-gothic, sans-serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 45px;
+        // color: $light-text;
+    }
+}
+
+.container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}

@@ -1,0 +1,49 @@
+{
+    "descriptor": {
+        "title": "Garlic Fingers",
+        "id": "2004"
+    },
+    "options": [
+        {
+            "sku": "2004A",
+            "name": "Half",
+            "priceLevel": {
+                "formattedPrice": "$8",
+                "value": 8.00
+            }
+        },
+        {
+            "sku": "2004B",
+            "name": "Full",
+            "priceLevel": {
+                "formattedPrice": "$12.75",
+                "value": 12.75
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Add-ons",
+            "modifiers": [
+                {
+                    "sku": "2004AA",
+                    "name": "Bacon",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                },
+                {
+                    "sku": "2004AB",
+                    "name": "Cheddar",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                }
+            ]
+        }
+    ],
+    "description": "Garlic & mozzarella pizza strips with choice of marinara or donair sauce.",
+    "myMenu": false
+}

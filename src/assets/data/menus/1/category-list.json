@@ -1,0 +1,609 @@
+{
+    "title": "Drinks Menu",
+    "imageURL": "",
+    "dailySpecial": {
+        "descriptor": {
+            "title": "MONDAY • FEATURED DRAUGHT",
+            "id": "9000"
+        },
+        "description": "Bud Light • Budweiser • Kokanee Gold • Red Friar Truck • White Knight",
+        "options": [
+            {
+                "name": "14oz",
+                "priceLevel": {
+                    "formattedPrice": "$6.25",
+                    "value": 6.25
+                }
+            }
+        ],
+        "myMenu": false
+    },
+    "footerImage": "url",
+    "categories": [
+        {
+            "descriptor": {
+                "title": "Draught Beer",
+                "id": "10"
+            },
+            "menuItems": [
+                {
+                    "descriptor": {
+                        "title": "Alexander Keith’s IPA",
+                        "id": "1000"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$6.25",
+                                "value": 6.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.75",
+                                "value": 8.75
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$10.75",
+                                "value": 10.75
+                            }
+                        }
+                    ],
+                    "description": "5%alc/vol Nova Scotia. Mildly bitter with subtle notes of black licorice",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Bud Light",
+                        "id": "1001"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$6.25",
+                                "value": 6.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.75",
+                                "value": 8.75
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$10.75",
+                                "value": 10.75
+                            }
+                        }
+                    ],
+                    "description": "4%alc/vol USA. Unique, crisp clean",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Budweiser",
+                        "id": "1002"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$6.25",
+                                "value": 6.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.75",
+                                "value": 8.75
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$10.75",
+                                "value": 10.75
+                            }
+                        }
+                    ],
+                    "description": "5%alc/vol USA. Beechwood aged, smooth and easy drinking",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Coors Banquet",
+                        "id": "1003"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$6.25",
+                                "value": 6.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.75",
+                                "value": 8.75
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$10.75",
+                                "value": 10.75
+                            }
+                        }
+                    ],
+                    "description": "5%alc/vol USA. Clean and crisp and full-flavored lager",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Erdinger Dunkel",
+                        "id": "1004"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$7.25",
+                                "value": 7.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$9.95",
+                                "value": 9.95
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$11.95",
+                                "value": 11.95
+                            }
+                        }
+                    ],
+                    "description": "5.3%alc/vol Germany. Elegant deep dark brown wheat beer with a hint of caramel, nuts and fresh bread",
+                    "myMenu": true
+                },
+                {
+                    "descriptor": {
+                        "title": "Erdinger Weissbier",
+                        "id": "1005"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$7.25",
+                                "value": 7.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$9.95",
+                                "value": 9.95
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$11.95",
+                                "value": 11.95
+                            }
+                        }
+                    ],
+                    "description": "5.3%alc/vol Germany. Gentle spicy and yeast aromas blend with mildly bitter hops in this classic wheat beer",
+                    "myMenu": true
+                },
+                {
+                    "descriptor": {
+                        "title": "Granville Island Pale Ale",
+                        "id": "1006"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.00",
+                                "value": 8.00
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.50",
+                                "value": 8.50
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$10.50",
+                                "value": 10.50
+                            }
+                        }
+                    ],
+                    "description": "5%alc/vol BC. Rich and mellow",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Granville Island Winter Ale",
+                        "id": "1007"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$6.25",
+                                "value": 6.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.75",
+                                "value": 8.75
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$10.75",
+                                "value": 10.75
+                            }
+                        }
+                    ],
+                    "description": "4.7%alc/vol BC. Tropical fruit notes with subtle biscuit flavors and slightly tart finish",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Kokanee Gold",
+                        "id": "1008"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$6.25",
+                                "value": 6.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.75",
+                                "value": 8.75
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$10.75",
+                                "value": 10.75
+                            }
+                        }
+                    ],
+                    "description": "5.3%alc/vol BC. Smooth, clean and lightly hopped",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "O’hara’s Stout",
+                        "id": "1009"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$7.25",
+                                "value": 7.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$9.95",
+                                "value": 9.95
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$11.95",
+                                "value": 11.95
+                            }
+                        }
+                    ],
+                    "description": "4.3%alc/vol BC. Robust roast flavour complimented by full bodies and smooth mouth",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Phillips Blue Buck",
+                        "id": "1010"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$6.25",
+                                "value": 6.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.75",
+                                "value": 8.75
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$10.75",
+                                "value": 10.75
+                            }
+                        }
+                    ],
+                    "description": "5.5%alc/vol Nova Scotia",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Schofferhofer Grapefruit",
+                        "id": "1011"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$7.00",
+                                "value": 7.00
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$9.75",
+                                "value": 9.75
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$11.75",
+                                "value": 11.75
+                            }
+                        }
+                    ],
+                    "description": "2.5%alc/vol Germany. Grapefruit unmistakably sparkling and very refreshing",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Shock Top",
+                        "id": "1012"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$6.25",
+                                "value": 6.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$8.75",
+                                "value": 8.75
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$10.75",
+                                "value": 10.75
+                            }
+                        }
+                    ],
+                    "description": "5.2%alc/vol USA. Spiced Belgian style wheat ale brewed with real orange, lemon and lime peels for a smooth citrusy finish",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Stella Artois",
+                        "id": "1013"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$7.25",
+                                "value": 7.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$9.95",
+                                "value": 9.95
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$11.95",
+                                "value": 11.95
+                            }
+                        }
+                    ],
+                    "description": "5%alc/vol Belgium. Premium European lager with distinct flavour",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Strongbow Cider",
+                        "id": "1014"
+                    },
+                    "options": [
+                        {
+                            "name": "14oz",
+                            "priceLevel": {
+                                "formattedPrice": "$7.25",
+                                "value": 7.25
+                            }
+                        },
+                        {
+                            "name": "20oz",
+                            "priceLevel": {
+                                "formattedPrice": "$9.95",
+                                "value": 9.95
+                            }
+                        },
+                        {
+                            "name": "25oz",
+                            "priceLevel": {
+                                "formattedPrice": "$11.95",
+                                "value": 11.95
+                            }
+                        }
+                    ],
+                    "description": "5.3%alc/vol England. Crisp and dry and very refreshing",
+                    "myMenu": false
+                }
+            ]
+        },
+        {
+            "descriptor": {
+                "title": "Local Beers",
+                "id": "11"
+            },
+            "menuItems": [
+                {
+                    "descriptor": {
+                        "title": "Local Beer",
+                        "id": "1100"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$5.00",
+                                "value": 5.00
+                            }
+                        }
+                    ],
+                    "description": "Local beer in a can",
+                    "myMenu": false
+                }
+            ]
+        },
+        {
+            "descriptor": {
+                "title": "Bottled Beer & Cider",
+                "id": "12"
+            },
+            "menuItems": [
+                {
+                    "descriptor": {
+                        "title": "Bottled Beer",
+                        "id": "1200"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$6.00",
+                                "value": 6.00
+                            }
+                        }
+                    ],
+                    "description": "Beer in a bottle",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Bottled Cider",
+                        "id": "1201"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$6.00",
+                                "value": 6.00
+                            }
+                        }
+                    ],
+                    "description": "Cider in a bottle",
+                    "myMenu": false
+                }
+            ]
+        },
+        {
+            "descriptor": {
+                "title": "Red Wine",
+                "id": "13"
+            },
+            "menuItems": [
+                {
+                    "descriptor": {
+                        "title": "Red Wine",
+                        "id": "1300"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$5.25",
+                                "value": 5.25
+                            }
+                        }
+                    ],
+                    "description": "Red wine in a glass",
+                    "myMenu": false
+                }
+            ]
+        },
+        {
+            "descriptor": {
+                "title": "White Wine",
+                "id": "14"
+            },
+            "menuItems": [
+                {
+                    "descriptor": {
+                        "title": "White Wine",
+                        "id": "1400"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$5.25",
+                                "value": 5.25
+                            }
+                        }
+                    ],
+                    "description": "White wine in a glass",
+                    "myMenu": false
+                }
+            ]
+        }
+    ]
+}

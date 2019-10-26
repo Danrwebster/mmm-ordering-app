@@ -1,0 +1,34 @@
+{
+    "descriptor": {
+        "title": "Bud Light",
+        "id": "1001"
+    },
+    "options": [
+        {
+            "sku": "1001A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$6.25",
+                "value": 6.25
+            }
+        },
+        {
+            "sku": "1001B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$8.75",
+                "value": 8.75
+            }
+        },
+        {
+            "sku": "1001C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$10.75",
+                "value": 10.75
+            }
+        }
+    ],
+    "description": "4%alc/vol USA. Unique, crisp clean",
+    "myMenu": false
+}

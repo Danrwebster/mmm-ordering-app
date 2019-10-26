@@ -1,0 +1,99 @@
+@import "variables";
+@import "mixins";
+
+.splash-banner {
+    height: 100px;
+    width: 780px;
+    margin: 0 auto 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-accent;
+
+    // background-image: url("../../../assets/images/top-menu-bg.jpg");
+    // background-position: center;
+    // background-size: 100%;
+    // background-repeat: no-repeat;
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 0 0 15px;
+    }
+
+    .menu-title {
+        z-index: 1;
+        // font-family: league-gothic, sans-serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 45px;
+        // color: $light-text;
+    }
+}
+
+.container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    .grid-container {
+        flex: 1 0 auto;
+        width: 780px;
+        margin: 0 auto 100px;
+
+        @include breakpoint(tablet) {
+            width: auto;
+            margin: 0 15px 100px;
+        }
+
+
+        .menu-category {
+            background-color: #EEEEEE;
+            border-radius: 4px;
+
+            // color: $light-text;
+            // font-family: league-gothic, sans-serif;
+            // font-weight: 400;
+            // font-style: normal;
+            font-size: 24px;
+            text-align: center;
+        }
+    }
+}
+
+mat-grid-tile {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.footer {
+    height: 100px;
+    width: 780px;
+    margin: 0 auto 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // background-color: $primary-dark;
+
+    p {
+        margin: 0;
+        padding: 0;
+
+        // color: $med-dark-text;
+        // font-family: adobe-garamond-pro, serif;
+        // font-weight: 400;
+        // font-style: normal;
+   
+    }
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 80px 0 0;
+    }
+}

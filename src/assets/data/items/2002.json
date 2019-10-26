@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Coconut Prawns",
+        "id": "2002"
+    },
+    "options": [
+        {
+            "sku": "2002A",
+            "priceLevel": {
+                "formattedPrice": "$16.25",
+                "value": 16.25
+            }
+        }
+    ],
+    "description": "Coconut coated jumbo prawns with garlic ginger dipping sauce.",
+    "myMenu": false
+}

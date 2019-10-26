@@ -1,0 +1,91 @@
+@import "variables";
+@import "mixins";
+
+#modal-container {
+    opacity: 1;
+    z-index: 50;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    overflow-y: auto;
+    overflow-x: hidden;
+    animation: fade-in-bg 0.1s ease-out 0s 1 forwards;
+
+    mat-card-title {
+        margin: 20px;
+        // font-family: league-gothic, sans-serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 45px;
+        // color: $secondary-accent;
+    }
+    
+    mat-card-content {
+        margin: 0 20px 20px;
+        // font-family: adobe-garamond-pro, serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 16px;
+        // color: $dark-text;
+    }
+}
+
+.flex-container {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    animation: fade-in 0.2s ease-out 0.1s 1 forwards;
+}
+
+@keyframes fade-in-bg {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.card {
+    width: 780px;
+    padding: 0;
+    margin: 10px auto;
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 10px 15px;
+    }
+}
+
+.button-container {
+    margin: 0 20px;
+    display: flex;
+
+    button {
+        flex: 0 0 48%;
+        margin: 0 0 20px;
+        height: 50px;
+
+        &:first-child {
+            margin-right: auto;
+        }
+    }
+}

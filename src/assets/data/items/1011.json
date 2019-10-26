@@ -1,0 +1,34 @@
+{
+    "descriptor": {
+        "title": "Schofferhofer Grapefruit",
+        "id": "1011"
+    },
+    "options": [
+        {
+            "sku": "1011A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$7.00",
+                "value": 7.00
+            }
+        },
+        {
+            "sku": "1011B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$9.75",
+                "value": 9.75
+            }
+        },
+        {
+            "sku": "1011C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$11.75",
+                "value": 11.75
+            }
+        }
+    ],
+    "description": "2.5%alc/vol Germany. Grapefruit unmistakably sparkling and very refreshing",
+    "myMenu": false
+}

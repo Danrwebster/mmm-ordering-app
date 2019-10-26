@@ -1,0 +1,26 @@
+{
+    "descriptor": {
+        "title": "Maui Ribs",
+        "id": "2007"
+    },
+    "options": [
+        {
+            "sku": "2007A",
+            "name": "Half",
+            "priceLevel": {
+                "formattedPrice": "$12",
+                "value": 13.00
+            }
+        },
+        {
+            "sku": "2007B",
+            "name": "Full",
+            "priceLevel": {
+                "formattedPrice": "$24",
+                "value": 24.00
+            }
+        }
+    ],
+    "description": "Always copied, never duplicated. AAA Alberta prime rib bones marinated in our Maui sauce & broiled to a sweet, sticky finish.",
+    "myMenu": false
+}

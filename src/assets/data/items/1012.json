@@ -1,0 +1,34 @@
+{
+    "descriptor": {
+        "title": "Shock Top",
+        "id": "1012"
+    },
+    "options": [
+        {
+            "sku": "1012A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$6.25",
+                "value": 6.25
+            }
+        },
+        {
+            "sku": "1012B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$8.75",
+                "value": 8.75
+            }
+        },
+        {
+            "sku": "1012C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$10.75",
+                "value": 10.75
+            }
+        }
+    ],
+    "description": "5.2%alc/vol USA. Spiced Belgian style wheat ale brewed with real orange, lemon and lime peels for a smooth citrusy finish",
+    "myMenu": false
+}

@@ -1,0 +1,35 @@
+<mat-card id="card-container" class="mat-elevation-z6">
+	<mat-accordion [displayMode]="'flat'" class="list-container">
+		<mat-expansion-panel>
+			<mat-expansion-panel-header [collapsedHeight]="'50px'" [expandedHeight]="'50px'" class="modifier-title">
+				{{modifierGroup.groupName}}<span *ngIf="selectedLength">&nbsp;({{selectedLength}})</span>
+			</mat-expansion-panel-header>
+			<ng-template matExpansionPanelContent>
+				<ng-container *ngIf="modifierGroup.max !== 1">
+					<form class="form-container" [formGroup]="modifierForm">
+						<mat-checkbox *ngFor="let modifier of modifierGroup.modifiers; let i = index"
+							(change)="onChange(modifier, $event.checked)">
+							{{modifier.name}}
+							<span class="option-price" *ngIf="modifier.priceLevel">
+								{{modifier.priceLevel.formattedPrice}}
+							</span>
+						</mat-checkbox>
+					</form>
+				</ng-container>
+				<ng-container *ngIf="modifierGroup.max === 1">
+					<mat-radio-group>
+						<mat-radio-button *ngFor="let modifier of modifierGroup.modifiers; let i = index"
+							[value]="modifier" (click)="onSelect(modifier)" [checked]="i === 0">
+							<span class="option-label">
+								{{modifier.name}}
+							</span>
+							<span class="option-price" *ngIf="modifier.priceLevel">
+								{{modifier.priceLevel.formattedPrice}}
+							</span>
+						</mat-radio-button>
+					</mat-radio-group>
+				</ng-container>
+			</ng-template>
+		</mat-expansion-panel>
+	</mat-accordion>
+</mat-card>

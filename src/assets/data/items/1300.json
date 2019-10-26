@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Red Wine",
+        "id": "1300"
+    },
+    "options": [
+        {
+            "sku": "1300A",
+            "priceLevel": {
+                "formattedPrice": "$5.25",
+                "value": 5.25
+            }
+        }
+    ],
+    "description": "Red wine in a glass",
+    "myMenu": false
+}

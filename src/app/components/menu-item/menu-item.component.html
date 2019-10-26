@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="title">
+            <h1>{{item.descriptor.title}}</h1>
+            <mat-icon class="inactive" *ngIf="!item.myMenu">favorite_border</mat-icon>
+            <mat-icon class="active" *ngIf="item.myMenu">favorite</mat-icon>
+    </div>
+    <h2>
+        <span class="price-option" *ngFor="let option of item.options">
+            <ng-container *ngIf="option.name">
+                {{option.name}}: 
+            </ng-container>
+            <ng-container *ngIf="option.priceLevel">
+                {{option.priceLevel.formattedPrice}}
+            </ng-container>
+        </span>
+    </h2>
+    <p>{{item.description}}</p>
+</div>

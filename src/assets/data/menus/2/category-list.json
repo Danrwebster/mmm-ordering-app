@@ -1,0 +1,460 @@
+{
+    "title": "Food Menu",
+    "imageURL": "",
+    "dailySpecial": {
+        "descriptor": {
+            "title": "MONDAY • 1/2 PRICE PIZZA",
+            "id": "9001"
+        },
+        "options": [
+            {
+                "name": "1/2 PRICE"
+            }
+        ],
+        "description": "3pm until close • dine-in only • minimum drink order required",
+        "myMenu": false
+    },
+    "footerImage": "url",
+    "categories": [
+        {
+            "descriptor": {
+                "title": "Small Bites 'n' Shareables",
+                "id": "20"
+            },
+            "menuItems": [
+                {
+                    "descriptor": {
+                        "title": "Calamari",
+                        "id": "2000"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$14.50",
+                                "value": 14.50
+                            }
+                        }
+                    ],
+                    "description": "Hand breaded, buttermilk marinated crispy Calamari topped with fried peppers & onions, & tzatziki sauce.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Chicken Fingers",
+                        "id": "2001"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$15.50",
+                                "value": 15.50
+                            }
+                        }
+                    ],
+                    "description": "Breaded chicken strips, fries, & sweet chili sauce.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Coconut Prawns",
+                        "id": "2002"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$16.25",
+                                "value": 16.25
+                            }
+                        }
+                    ],
+                    "description": "Coconut coated jumbo prawns with garlic ginger dipping sauce.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Fried Pickles",
+                        "id": "2003"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$11.50",
+                                "value": 11.50
+                            }
+                        }
+                    ],
+                    "description": "Breaded pickles fried golden brown with ranch dipping sauce",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Garlic Fingers",
+                        "id": "2004"
+                    },
+                    "options": [
+                        {
+                            "name": "Half",
+                            "priceLevel": {
+                                "formattedPrice": "$8",
+                                "value": 8.00
+                            }
+                        },
+                        {
+                            "name": "Full",
+                            "priceLevel": {
+                                "formattedPrice": "$12.75",
+                                "value": 12.75
+                            }
+                        }
+                    ],
+                    "description": "Garlic & mozzarella pizza strips with choice of marinara or donair sauce.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Loaded Hummus",
+                        "id": "2005"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$14",
+                                "value": 14.00
+                            }
+                        }
+                    ],
+                    "description": "House-made hummus topped with feta, grape tomatoes, cucumber, beets, red onion, roasted red pepper, & green onions. Served with naan bread & tortilla chips.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Mac ‘n’ Cheese Balls",
+                        "id": "2006"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$12",
+                                "value": 12.00
+                            }
+                        }
+                    ],
+                    "description": "Mac 'n' cheese rolled into balls, breaded, fried crispy golden brown, & served with marinara sauce.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Maui Ribs",
+                        "id": "2007"
+                    },
+                    "options": [
+                        {
+                            "name": "Half",
+                            "priceLevel": {
+                                "formattedPrice": "$13",
+                                "value": 13.00
+                            }
+                        },
+                        {
+                            "name": "Full",
+                            "priceLevel": {
+                                "formattedPrice": "$24",
+                                "value": 24.00
+                            }
+                        }
+                    ],
+                    "description": "Always copied, never duplicated. AAA Alberta prime rib bones marinated in our Maui sauce & broiled to a sweet, sticky finish.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Nachos",
+                        "id": "2008"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$19",
+                                "value": 19.00
+                            }
+                        }
+                    ],
+                    "description": "Tortilla chips loaded with cheddar, mozzarella, & Monterey Jack cheese blend, tomatoes, jalapenos, banana peppers, green onions, & salsa 'n' sour cream.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Poutine",
+                        "id": "2009"
+                    },
+                    "options": [
+                        {
+                            "name": "Half",
+                            "priceLevel": {
+                                "formattedPrice": "$8",
+                                "value": 8.00
+                            }
+                        },
+                        {
+                            "name": "Full",
+                            "priceLevel": {
+                                "formattedPrice": "$14",
+                                "value": 14.00
+                            }
+                        }
+                    ],
+                    "description": "Seasoned fries, Quebec cheese curds, & house gravy.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Quesadilla",
+                        "id": "2010"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$15.50",
+                                "value": 15.50
+                            }
+                        }
+                    ],
+                    "description": "Sweet mesquite chicken, peppers, red onion, cheddar, mozzarella, Monterey Jack, jalapeno, & salsa 'n' sour cream.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Rib Bites",
+                        "id": "2011"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$14",
+                                "value": 14.00
+                            }
+                        }
+                    ],
+                    "description": "Bone-in riblets dusted with our sweet mesquite rub & ranch dip.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "T’n’T Wings",
+                        "id": "2012"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$16",
+                                "value": 16.00
+                            }
+                        }
+                    ],
+                    "description": "1lb of our number one rated chicken wings with ranch or blue cheese dip. Available in 34 flavours!",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Toad Stools",
+                        "id": "2013"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$15.50",
+                                "value": 15.50
+                            }
+                        }
+                    ],
+                    "description": "Roasted mushroom caps stuffed with shrimp, red pepper, artichoke, spinach & cream cheese mix. Topped with mozzarella & broiled bubbly hot & served with grilled sourdough.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Turtle Tracks",
+                        "id": "2014"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$7.25",
+                                "value": 7.25
+                            }
+                        }
+                    ],
+                    "description": "Lattice potato chips dusted in our sweet mesquite rub & with sriracha mayo dip.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Yorkies",
+                        "id": "2015"
+                    },
+                    "options": [
+                        {
+                            "name": "Half",
+                            "priceLevel": {
+                                "formattedPrice": "$11",
+                                "value": 11.00
+                            }
+                        },
+                        {
+                            "name": "Full",
+                            "priceLevel": {
+                                "formattedPrice": "$17",
+                                "value": 17.00
+                            }
+                        }
+                    ],
+                    "description": "Four Yorkshire puddings, baked daily, stuffed with in-house smoked brisket, O'Hara's stout au jus, & horseradish sour cream.",
+                    "myMenu": false
+                }
+            ]
+        },
+        {
+            "descriptor": {
+                "title": "Burgers 'n' Sandwiches",
+                "id": "21"
+            },
+            "menuItems": [
+                {
+                    "descriptor": {
+                        "title": "Angry Burger",
+                        "id": "2100"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$17.25",
+                                "value": 17.25
+                            }
+                        }
+                    ],
+                    "description": "6oz fresh Alberta beef patty, banana peppers, jalapeños, cheddar, lettuce, tomato, onion, pickle, & burger sauce. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": true
+                },
+                {
+                    "descriptor": {
+                        "title": "Bison Burger",
+                        "id": "2101"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$18.75",
+                                "value": 18.75
+                            }
+                        }
+                    ],
+                    "description": "6oz fresh lean Alberta bison patty, lettuce, tomato, onion, pickle, & burger sauce. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Brisket Grilled Cheese",
+                        "id": "2102"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$16.75",
+                                "value": 16.75
+                            }
+                        }
+                    ],
+                    "description": "House smoked brisket, whiskey onions, nacho cheese, & bacon jam on grilled sourdough. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": true
+                },
+                {
+                    "descriptor": {
+                        "title": "O’Hara’s Beef Dip",
+                        "id": "2103"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$16.75",
+                                "value": 16.75
+                            }
+                        }
+                    ],
+                    "description": "House smoked brisket, mozzarella, O’Hara’s stout au jus, pretzel bun with choice of sautéed mushrooms or whiskey onions. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Pub Burger",
+                        "id": "2104"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$15.75",
+                                "value": 15.75
+                            }
+                        }
+                    ],
+                    "description": "6oz fresh Alberta beef patty, lettuce, tomato, onion, pickle, & burger sauce. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Steak Sandwich",
+                        "id": "2105"
+                    },
+                    "options": [
+                        {
+                            "name": "5oz",
+                            "priceLevel": {
+                                "formattedPrice": "$18",
+                                "value": 18.00
+                            }
+                        },
+                        {
+                            "name": "7oz",
+                            "priceLevel": {
+                                "formattedPrice": "$21.25",
+                                "value": 21.25
+                            }
+                        }
+                    ],
+                    "description": "AAA Alberta sirloin grilled to your liking, seasoned with our house steak spice, & served with ciabatta. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "T ’n’ T Club",
+                        "id": "2106"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$16.75",
+                                "value": 16.75
+                            }
+                        }
+                    ],
+                    "description": "Sweet mesquite chicken breast, peppered bacon, cheddar, lettuce, tomato, onion, & mayo on a grilled bun. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": false
+                },
+                {
+                    "descriptor": {
+                        "title": "Veggie Burger",
+                        "id": "2107"
+                    },
+                    "options": [
+                        {
+                            "priceLevel": {
+                                "formattedPrice": "$16.50",
+                                "value": 16.50
+                            }
+                        }
+                    ],
+                    "description": "Veggie patty, lettuce, tomato, onion, pickle, & burger sauce. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+                    "myMenu": false
+                }
+            ]
+        }
+    ]
+}

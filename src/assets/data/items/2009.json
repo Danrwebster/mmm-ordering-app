@@ -1,0 +1,49 @@
+{
+    "descriptor": {
+        "title": "Poutine",
+        "id": "2009"
+    },
+    "options": [
+        {
+            "sku": "2009A",
+            "name": "Half",
+            "priceLevel": {
+                "formattedPrice": "$8",
+                "value": 8.00
+            }
+        },
+        {
+            "sku": "2009B",
+            "name": "Full",
+            "priceLevel": {
+                "formattedPrice": "$14",
+                "value": 14.00
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Add-ons",
+            "modifiers": [
+                {
+                    "sku": "2009AA",
+                    "name": "In-house smoked brisket",
+                    "priceLevel": {
+                        "formattedPrice": "$4",
+                        "value": 4.00
+                    }
+                },
+                {
+                    "sku": "2009AB",
+                    "name": "Chili",
+                    "priceLevel": {
+                        "formattedPrice": "$4",
+                        "value": 4.00
+                    }
+                }
+            ]
+        }
+    ],
+    "description": "Seasoned fries, Quebec cheese curds, & house gravy.",
+    "myMenu": false
+}

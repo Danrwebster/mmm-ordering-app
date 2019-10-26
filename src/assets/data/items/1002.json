@@ -1,0 +1,34 @@
+{
+    "descriptor": {
+        "title": "Budweiser",
+        "id": "1002"
+    },
+    "options": [
+        {
+            "sku": "1002A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$6.25",
+                "value": 6.25
+            }
+        },
+        {
+            "sku": "1002B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$8.75",
+                "value": 8.75
+            }
+        },
+        {
+            "sku": "1002C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$10.75",
+                "value": 10.75
+            }
+        }
+    ],
+    "description": "5%alc/vol USA. Beechwood aged, smooth and easy drinking",
+    "myMenu": false
+}

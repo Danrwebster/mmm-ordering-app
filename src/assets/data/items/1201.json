@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Bottled Cider",
+        "id": "1201"
+    },
+    "options": [
+        {
+            "sku": "1201A",
+            "priceLevel": {
+                "formattedPrice": "$6.00",
+                "value": 6.00
+            }
+        }
+    ],
+    "description": "Cider in a bottle",
+    "myMenu": false
+}

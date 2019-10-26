@@ -1,0 +1,34 @@
+{
+    "descriptor": {
+        "title": "Erdinger Dunkel",
+        "id": "1004"
+    },
+    "options": [
+        {
+            "sku": "1004A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$7.25",
+                "value": 7.25
+            }
+        },
+        {
+            "sku": "1004B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$9.95",
+                "value": 9.95
+            }
+        },
+        {
+            "sku": "1004C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$11.95",
+                "value": 11.95
+            }
+        }
+    ],
+    "description": "5.3%alc/vol Germany. Elegant deep dark brown wheat beer with a hint of caramel, nuts and fresh bread",
+    "myMenu": true
+}

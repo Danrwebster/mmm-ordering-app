@@ -1,0 +1,165 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+#global-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+
+    .noScroll {
+        overflow-y: hidden;
+    
+        &.global-container {
+            position: fixed;
+        }
+    }
+
+    .mat-drawer-container, .mat-drawer-content {
+        z-index: inherit; // Fix bug with Safari - position: fixed elements do not display with z-index set
+   
+    }
+
+    mat-sidenav-container {
+        height: 100vh;
+        background-color: transparent;
+
+        .mat-list-item-content {
+            color: $dark-text;
+        }
+
+        .disabled {
+            opacity: 0.5;
+        }
+
+        mat-list-item {
+            border-radius: 4px;
+
+            &.main {
+                div {
+                    padding: 0 16px;
+                    border-radius: 4px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    flex-grow: 1;
+    
+                    &:active, &:focus {
+                        outline: none;
+                    }
+    
+                    &.active {
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+                }
+
+                button {
+                    height: 100%;
+                }
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &.active {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+
+            &.disabled {
+                opacity: 0.5;
+                pointer-events: none;
+            }
+        }
+    }
+
+    snack-bar-container {
+        // font-family: league-gothic, sans-serif;
+        // font-weight: 400;
+        margin: 6px;
+        background-color: $primary-accent;
+        color: $light-text;
+
+        button {
+            color: $light-text;
+        }
+    }
+}
+
+.sidenav-container {
+    flex-grow: 1;
+
+    .sidenav {
+        margin-top: $header-large;
+        background-color: $card-background;
+        padding: 0 16px;
+        width: 80%;
+        max-width: 400px;
+
+        @include breakpoint(mobile) {
+            margin-top: $header-small;
+        }
+
+
+        hr {
+            border-style: solid;
+            border-color: $primary-border;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+        }
+    }
+
+    #content {
+        padding-top: $header-large;
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(mobile) {
+            padding-top: $header-small;
+        }
+    }
+}
+
+.drill-down {
+    margin-left: auto;
+}
+
+mat-list {
+    margin-top: 16px;
+}
+
+::ng-deep {
+    html, body {
+        &.noScroll {
+            overflow-y: hidden;
+            position: fixed;
+            top: 0;
+        }
+    }
+
+    mat-tab-group {
+        &.sidenav-tab {
+            height: 100%;
+
+            mat-tab-header {
+                display: none;
+            }
+
+            .mat-tab-body-wrapper {
+                height: 100%;
+            }
+        }
+    }
+
+    #global-container {
+        .main {
+            .mat-list-item-content {
+                padding: 0;
+            }
+        }
+    }
+}

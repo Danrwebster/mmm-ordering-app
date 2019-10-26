@@ -1,0 +1,57 @@
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    width: 100vw;
+}
+
+#container {
+    mat-icon {
+        &.inactive {
+            opacity: 0.5;
+        }
+    }
+}
+
+mat-toolbar-row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 780px;
+}
+
+.buttons {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &.logo {
+        padding: 0;
+        flex: 0 0 40%;
+        justify-content: center;
+    }
+
+    &.right {
+        flex: 0 0 20%;
+        justify-content: flex-end;
+    }
+
+    &.left {
+        flex: 0 0 20%;
+        justify-content: flex-start;
+    }
+}
+
+.header-logo {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    height: 36px;
+}
+
+mat-toolbar {
+    align-items: center;
+}

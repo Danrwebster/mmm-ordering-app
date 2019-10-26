@@ -1,0 +1,23 @@
+[
+    {
+        "descriptor": {
+            "title": "Drinks Menu",
+            "id": "1"
+        },
+        "imageURL": ""
+    },
+    {
+        "descriptor": {
+            "title": "Food Menu",
+            "id": "2"
+        },
+        "imageURL": ""
+    },
+    {
+        "descriptor": {
+            "title": "Hangover Breakfast",
+            "id": "3"
+        },
+        "imageURL": ""
+    }
+]

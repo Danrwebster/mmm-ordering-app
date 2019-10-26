@@ -1,0 +1,26 @@
+{
+    "descriptor": {
+        "title": "Yorkies",
+        "id": "2015"
+    },
+    "options": [
+        {
+            "sku": "2015A",
+            "name": "Half",
+            "priceLevel": {
+                "formattedPrice": "$11",
+                "value": 11.00
+            }
+        },
+        {
+            "sku": "2015B",
+            "name": "Full",
+            "priceLevel": {
+                "formattedPrice": "$17",
+                "value": 17.00
+            }
+        }
+    ],
+    "description": "Four Yorkshire puddings, baked daily, stuffed with in-house smoked brisket, O'Hara's stout au jus, & horseradish sour cream.",
+    "myMenu": false
+}

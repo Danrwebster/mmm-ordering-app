@@ -1,0 +1,32 @@
+{
+    "descriptor": {
+        "title": "Quesadilla",
+        "id": "2010"
+    },
+    "options": [
+        {
+            "sku": "2010A",
+            "priceLevel": {
+                "formattedPrice": "$15.50",
+                "value": 15.50
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Add-ons",
+            "modifiers": [
+                {
+                    "sku": "2010AA",
+                    "name": "Guacamole",
+                    "priceLevel": {
+                        "formattedPrice": "$3.75",
+                        "value": 3.75
+                    }
+                }
+            ]
+        }
+    ],
+    "description": "Sweet mesquite chicken, peppers, red onion, cheddar, mozzarella, Monterey Jack, jalapeno, & salsa 'n' sour cream.",
+    "myMenu": false
+}

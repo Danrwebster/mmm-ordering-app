@@ -1,0 +1,55 @@
+{
+    "descriptor": {
+        "title": "Nachos",
+        "id": "2008"
+    },
+    "options": [
+        {
+            "priceLevel": {
+                "formattedPrice": "$19",
+                "value": 19.00
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Add-ons",
+            "modifiers": [
+                {
+                    "sku": "2008AA",
+                    "name": "Guacamole",
+                    "priceLevel": {
+                        "formattedPrice": "$3.25",
+                        "value": 3.25
+                    }
+                },
+                {
+                    "sku": "2008AB",
+                    "name": "Sweet mesquite chicken chicken",
+                    "priceLevel": {
+                        "formattedPrice": "$4",
+                        "value": 4.00
+                    }
+                },
+                {
+                    "sku": "2008AC",
+                    "name": "Spicy beef",
+                    "priceLevel": {
+                        "formattedPrice": "$4",
+                        "value": 4.00
+                    }
+                },
+                {
+                    "sku": "2008AD",
+                    "name": "Chili",
+                    "priceLevel": {
+                        "formattedPrice": "$4",
+                        "value": 4.00
+                    }
+                }
+            ]
+        }
+    ],
+    "description": "Tortilla chips loaded with cheddar, mozzarella, & Monterey Jack cheese blend, tomatoes, jalapenos, banana peppers, green onions, & salsa 'n' sour cream.",
+    "myMenu": false
+}

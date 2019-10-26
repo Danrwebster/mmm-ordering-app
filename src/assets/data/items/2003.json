@@ -1,0 +1,32 @@
+{
+    "descriptor": {
+        "title": "Fried Pickles",
+        "id": "2003"
+    },
+    "options": [
+        {
+            "sku": "2003A",
+            "priceLevel": {
+                "formattedPrice": "$11.50",
+                "value": 11.50
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Sides",
+            "modifiers": [
+                {
+                    "sku": "2003AA",
+                    "name": "Carrots 'n' Celery",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                }
+            ]
+        }
+    ],
+    "description": "Breaded pickles fried golden brown with ranch dipping sauce.",
+    "myMenu": false
+}

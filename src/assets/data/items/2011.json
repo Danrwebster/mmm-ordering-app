@@ -1,0 +1,32 @@
+{
+    "descriptor": {
+        "title": "Rib Bites",
+        "id": "2011"
+    },
+    "options": [
+        {
+            "sku": "2011A",
+            "priceLevel": {
+                "formattedPrice": "$14",
+                "value": 14.00
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Sides",
+            "modifiers": [
+                {
+                    "sku": "2011AA",
+                    "name": "Carrots 'n' celery",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                }
+            ]
+        }
+    ],
+    "description": "Bone-in riblets dusted with our sweet mesquite rub & ranch dip.",
+    "myMenu": false
+}

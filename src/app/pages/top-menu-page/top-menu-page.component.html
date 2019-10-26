@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="splash-banner">
+        <!-- <img class="splash-cta" src="../../../assets/images/top_menu_splash_text.svg" /> -->
+        <div class="menu-title">Menu Categories</div>
+    </div>
+    <div class="grid-container">
+        <mat-grid-list cols="2" rowHeight="2:1" gutterSize="5px">
+            <mat-grid-tile color="accent" [colspan]="2" [rowspan]="1" class="menu-category mat-elevation-z2"
+                [routerLink]="'/myMobileMenu'">
+                My Mobile Menu
+            </mat-grid-tile>
+            <mat-grid-tile *ngFor="let menu of menuList" color="accent" [colspan]="1" [rowspan]="1"
+                class="menu-category mat-elevation-z2" [routerLink]="['/menu', menu.descriptor.id]">
+                {{menu.descriptor.title}}
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <!-- <div class="footer">
+        <p>Toad 'n' Turtle</p>
+        <p>Calgary Barlow</p>
+    </div> -->
+</div>

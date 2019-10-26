@@ -1,0 +1,40 @@
+{
+    "descriptor": {
+        "title": "Turtle Tracks",
+        "id": "2014"
+    },
+    "options": [
+        {
+            "sku": "2014A",
+            "priceLevel": {
+                "formattedPrice": "$7.25",
+                "value": 7.25
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Add-ons",
+            "modifiers": [
+                {
+                    "sku": "2014AA",
+                    "name": "Award-winning, in-house slow smoked pulled pork",
+                    "priceLevel": {
+                        "formattedPrice": "$4",
+                        "value": 4.00
+                    }
+                },
+                {
+                    "sku": "2014AB",
+                    "name": "Chili",
+                    "priceLevel": {
+                        "formattedPrice": "$4",
+                        "value": 4.00
+                    }
+                }
+            ]
+        }
+    ],
+    "description": "Lattice potato chips dusted in our sweet mesquite rub & with sriracha mayo dip.",
+    "myMenu": false
+}

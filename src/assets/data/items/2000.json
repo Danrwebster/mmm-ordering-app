@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Calamari",
+        "id": "2000"
+    },
+    "options": [
+        {
+            "sku": "2000A",
+            "priceLevel": {
+                "formattedPrice": "$14.50",
+                "value": 14.50
+            }
+        }
+    ],
+    "description": "Hand breaded, buttermilk marinated crispy Calamari topped with fried peppers & onions, & tzatziki sauce.",
+    "myMenu": false
+}

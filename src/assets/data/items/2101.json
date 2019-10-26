@@ -1,0 +1,117 @@
+{
+    "descriptor": {
+        "title": "Bison Burger",
+        "id": "2101"
+    },
+    "options": [
+        {
+            "sku": "2101A",
+            "priceLevel": {
+                "formattedPrice": "$18.75",
+                "value": 18.75
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Options",
+            "modifiers": [
+                {
+                    "sku": "2100AA",
+                    "name": "Cheddar",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                },
+                {
+                    "sku": "2100AB",
+                    "name": "Peppered Bacon",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                },
+                {
+                    "sku": "2100AC",
+                    "name": "Whiskey Onions",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                },
+                {
+                    "sku": "2100AD",
+                    "name": "Sautéed Mushrooms",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                },
+                {
+                    "sku": "2100AE",
+                    "name": "Egg",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                },
+                {
+                    "sku": "2100AF",
+                    "name": "Chili",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                }
+            ],
+            "required": false
+        },
+        {
+            "groupName": "Sides",
+            "modifiers": [
+                {
+                    "sku": "2100BA",
+                    "name": "Fries"
+                },
+                {
+                    "sku": "2100BB",
+                    "name": "Onion Rings"
+                },
+                {
+                    "sku": "2100BC",
+                    "name": "Mixed Green Salad"
+                },
+                {
+                    "sku": "2100BD",
+                    "name": "Caesar Salad"
+                },
+                {
+                    "sku": "2100BE",
+                    "name": "Tater Tots"
+                },
+                {
+                    "sku": "2100BF",
+                    "name": "Mashed Potatoes"
+                },
+                {
+                    "sku": "2100BG",
+                    "name": "Rice"
+                },
+                {
+                    "sku": "2100AH",
+                    "name": "Soup",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                }
+            ],
+            "required": true,
+            "min": 1,
+            "max": 1
+        }
+    ],
+    "description": "6oz fresh lean Alberta bison patty, lettuce, tomato, onion, pickle, & burger sauce. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+    "myMenu": false
+}

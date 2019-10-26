@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Mac ‘n’ Cheese Balls",
+        "id": "2006"
+    },
+    "options": [
+        {
+            "sku": "2006A",
+            "priceLevel": {
+                "formattedPrice": "$12",
+                "value": 12.00
+            }
+        }
+    ],
+    "description": "Mac 'n' cheese rolled into balls, breaded, fried crispy golden brown, & served with marinara sauce.",
+    "myMenu": false
+}

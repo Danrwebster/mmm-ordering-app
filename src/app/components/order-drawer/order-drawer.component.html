@@ -1,0 +1,38 @@
+<div id="container">
+	<div class="drawer-container">
+		<mat-accordion [displayMode]="'flat'">
+			<mat-expansion-panel [hideToggle]="true">
+				<mat-expansion-panel-header [collapsedHeight]="'50px'" [expandedHeight]="'50px'">
+					Details <mat-icon aria-label="View Item Order Details">keyboard_arrow_up</mat-icon>
+				</mat-expansion-panel-header>
+				<ng-template matExpansionPanelContent>
+
+					<div class="order-line-item base">
+						<div class="title">
+								{{ticketItem.title}} {{ticketItem.selectedOptions[0].name}}
+						</div>
+						<div *ngIf="ticketItem.selectedOptions[0].priceLevel" class="value">
+							{{ticketItem.selectedOptions[0].priceLevel.value | currency}}
+						</div>
+					</div>
+					<div class="order-line-item modifier" *ngFor="let modifier of ticketItem.selectedModifiers">
+						<div class="title">
+							{{modifier.name}}
+						</div>
+						<div *ngIf="modifier.priceLevel" class="value">
+							{{modifier.priceLevel.value | currency}}
+						</div>
+					</div>
+				</ng-template>
+			</mat-expansion-panel>
+		</mat-accordion>
+		<div class="order-sub-total">
+			<div class="title">Sub Total</div>
+			<div class="value">{{ticketItem.itemSubTotal.value | currency}}</div>
+		</div>
+		<div class="button-container">
+			<button class="mat-elevation-z2" mat-flat-button (click)="backButton($event)">Back</button>
+			<button class="mat-elevation-z2" mat-flat-button color="accent" (click)="submitButton($event)">Order</button>
+		</div>
+	</div>
+</div>

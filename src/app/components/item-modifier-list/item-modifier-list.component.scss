@@ -1,0 +1,101 @@
+@import "variables";
+
+#card-container {
+    padding: 0;
+    background: $card-background;
+    overflow: hidden;
+
+    mat-expansion-panel {
+        border-radius: 0;
+        margin-bottom: 5px;
+        box-shadow: none;
+        background: transparent;
+
+        mat-expansion-panel-header {
+            background-color: transparent;
+
+            // font-family: adobe-garamond-pro, serif;
+            font-size: 18px;
+
+            // text-transform: uppercase;
+            text-align: center;
+
+            // color: $secondary-accent;
+       
+        }
+    }
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+mat-radio-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    mat-radio-button {
+        margin: 5px 20px;
+    }
+}
+
+.mat-checkbox, .mat-radio-button {
+    position: relative;
+    margin: 5px 20px;
+
+    // font-family: adobe-garamond-pro, serif;
+    // font-weight: 400;
+    font-size: 18px;
+
+    &:first-of-type {
+        margin-top: 20px;
+
+        // &::before {
+        //     position: absolute;
+        //     top: -20px;
+        //     width: 100%;
+        //     content: "";
+        //     border-bottom-style: solid;
+        //     border-bottom-width: 1px;
+        //     border-bottom-color: $primary-border;
+        // }
+   
+    }
+
+    &:last-of-type {
+        margin-bottom: 20px;
+    }
+
+    .option-price {
+        font-weight: bold;
+        color: $med-dark-text;
+    }
+}
+
+::ng-deep {
+    #card-container {
+        .mat-content {
+            justify-content: center;
+
+            // color: $secondary-accent;
+
+            span {
+                opacity: 0.6;
+            }
+        }
+
+        .mat-checkbox-label {
+            white-space: initial;
+        }
+
+        // .mat-expansion-indicator {
+        //     &::after {
+        //         color: $secondary-accent !important;
+        //     }
+        // }
+   
+    }
+}

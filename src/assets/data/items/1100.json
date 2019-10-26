@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Local Beer",
+        "id": "1100"
+    },
+    "options": [
+        {
+            "sku": "1100A",
+            "priceLevel": {
+                "formattedPrice": "$5.00",
+                "value": 5.00
+            }
+        }
+    ],
+    "description": "Local beer in a can",
+    "myMenu": false
+}

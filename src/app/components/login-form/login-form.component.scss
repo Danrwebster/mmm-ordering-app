@@ -1,0 +1,60 @@
+@import "variables";
+@import "mixins";
+
+#card-container {
+    width: 384px;
+    margin: 0 auto;
+    padding: 0;
+
+    @include breakpoint(mobile-medium) {
+        width: auto;
+        margin: 0 15px;
+    }
+
+
+    .form-container {
+        margin: 20px 20px 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 20px 0;
+
+        &:last-of-type {
+            margin: 0 20px 20px;
+        }
+
+        button {
+            flex: 0 0 48%;
+            height: 50px;
+        }
+
+        span {
+            align-self: center;
+        }
+
+        &.secondary {
+            button {
+                height: auto;
+            }
+        }
+    }
+}
+
+mat-card-content {
+    margin: 0;
+}
+
+mat-card-content {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+mat-spinner {
+    margin: 0 auto;
+}

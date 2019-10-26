@@ -1,0 +1,17 @@
+{
+    "descriptor": {
+        "title": "Bottled Beer",
+        "id": "1200"
+    },
+    "options": [
+        {
+            "sku": "1200A",
+            "priceLevel": {
+                "formattedPrice": "$6.00",
+                "value": 6.00
+            }
+        }
+    ],
+    "description": "Beer in a bottle",
+    "myMenu": false
+}

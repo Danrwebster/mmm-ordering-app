@@ -1,0 +1,14 @@
+<div id="modal-container" (click)="button(modalConfig.button1)">
+	<div class="flex-container">
+		<mat-card class="card mat-elevation-z6">
+			<mat-card-title>{{modalConfig.title}}</mat-card-title>
+			<mat-card-content>
+				{{modalConfig.message}}
+			</mat-card-content>
+			<div class="button-container">
+				<button class="mat-elevation-z2" mat-flat-button color="primary" (click)="button(modalConfig.button1)">{{modalConfig.button1}}</button>
+				<button class="mat-elevation-z2" mat-flat-button color="accent" *ngIf="modalConfig.button2" (click)="button(modalConfig.button2)">{{modalConfig.button2}}</button>
+			</div>
+		</mat-card>
+	</div>
+</div>

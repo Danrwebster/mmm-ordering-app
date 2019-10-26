@@ -1,0 +1,50 @@
+{
+    "descriptor": {
+        "title": "Alexander Keith’s IPA",
+        "id": "1000"
+    },
+    "options": [
+        {
+            "sku": "1000A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$6.25",
+                "value": 6.25
+            }
+        },
+        {
+            "sku": "1000B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$8.75",
+                "value": 8.75
+            }
+        },
+        {
+            "sku": "1000C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$10.75",
+                "value": 10.75
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Options",
+            "modifiers": [
+                {
+                    "sku": "2105AA",
+                    "name": "Clam",
+                    "priceLevel": {
+                        "formattedPrice": "$10",
+                        "value": 10.00
+                    }
+                }
+            ],
+            "required": false
+        }
+    ],
+    "description": "5%alc/vol Nova Scotia. Mildly bitter with subtle notes of black licorice",
+    "myMenu": false
+}

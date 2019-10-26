@@ -1,0 +1,59 @@
+@import "variables";
+@import "mixins";
+
+#container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+
+    .button-container {
+        display: flex;
+        margin: 20px;
+    
+        button {
+            flex: 0 0 48%;
+            margin: 0;
+            height: 50px;
+    
+            &:first-child {
+                margin-right: auto;
+            }
+        }
+    }
+    
+    mat-card-title {
+        margin: 20px;
+        // font-family: league-gothic, sans-serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 45px;
+        // color: $secondary-accent;
+    }
+    
+    mat-card-content {
+        margin: 0 20px 20px;
+        // font-family: adobe-garamond-pro, serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 16px;
+        // color: $dark-text;
+    }
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    width: 780px;
+    padding: 0;
+    margin: 20px auto 0;
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 20px 15px 0;
+    }
+}

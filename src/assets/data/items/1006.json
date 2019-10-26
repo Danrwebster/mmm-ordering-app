@@ -1,0 +1,34 @@
+{
+    "descriptor": {
+        "title": "Granville Island Pale Ale",
+        "id": "1006"
+    },
+    "options": [
+        {
+            "sku": "1006A",
+            "name": "14oz",
+            "priceLevel": {
+                "formattedPrice": "$8.00",
+                "value": 8.00
+            }
+        },
+        {
+            "sku": "1006B",
+            "name": "20oz",
+            "priceLevel": {
+                "formattedPrice": "$8.50",
+                "value": 8.50
+            }
+        },
+        {
+            "sku": "1006C",
+            "name": "25oz",
+            "priceLevel": {
+                "formattedPrice": "$10.50",
+                "value": 10.50
+            }
+        }
+    ],
+    "description": "5%alc/vol BC. Rich and mellow",
+    "myMenu": false
+}

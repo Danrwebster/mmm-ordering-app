@@ -1,0 +1,195 @@
+@import "variables";
+@import "mixins";
+
+#container {
+    opacity: 1;
+    z-index: 50;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    overflow-y: auto;
+    overflow-x: hidden;
+    animation: fade-in-bg 0.1s ease-out 0s 1 forwards;
+
+    mat-card {
+        background: $card-background;
+        border-radius: 0;
+    }
+
+    .toggle-container {
+        margin-top: 10px;
+        border-radius: 4px;
+
+        mat-button-toggle-group {
+            width: 100%;
+            border: none;
+        }
+    }
+
+    mat-card-title {
+        margin: 20px;
+
+        // font-family: league-gothic, sans-serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 24px;
+        color: $dark-text;
+
+        &.small-title {
+            // font-family: adobe-garamond-pro, serif;
+            font-size: 18px;
+
+            // text-transform: uppercase;
+            text-align: center;
+
+            &::after {
+                margin-top: 10px;
+                height: 1px;
+                display: block;
+                content: "";
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                border-bottom-color: $primary-border;
+            }
+        }
+    }
+
+    mat-card-content {
+        margin: 0 20px 20px;
+
+        // font-family: adobe-garamond-pro, serif;
+        // font-weight: 400;
+        // font-style: normal;
+        font-size: 16px;
+        color: $dark-text;
+    }
+}
+
+@keyframes fade-in-bg {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.flex-container {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    animation: fade-in 0.2s ease-out 0.1s 1 forwards;
+
+    &.modal {
+        justify-content: center;
+    }
+}
+
+app-item-modifier-list {
+    width: 780px;
+    margin: 10px auto 0;
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 10px 15px 0;
+    }
+}
+
+.card {
+    width: 780px;
+    padding: 0;
+    margin: 10px auto;
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 10px 15px;
+    }
+
+
+    .list-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.spacer {
+    margin: 0 auto;
+    padding: 0;
+    background-color: transparent;
+    content: "";
+    width: 780px;
+    flex: 0 0 215px;
+
+    @include breakpoint(tablet) {
+        width: auto;
+        margin: 0;
+    }
+}
+
+.button-container {
+    margin: 0 20px;
+    display: flex;
+
+    button {
+        flex: 0 0 48%;
+        margin: 0 0 20px;
+        height: 50px;
+
+        &:first-child {
+            margin-right: auto;
+        }
+    }
+}
+
+.hide {
+    display: none;
+}
+
+// .mat-button-toggle-checked {
+//     background-color: $primary-accent;
+// }
+
+.mat-button-toggle {
+    flex: 1 0 auto;
+    display: none;
+
+    &.display {
+        display: block;
+    }
+}
+
+mat-radio-button {
+    width: 100%;
+    margin: 5px 0;
+}
+
+.mat-checkbox, .mat-radio-button {
+    margin: 5px 0;
+
+    // font-family: adobe-garamond-pro, serif;
+    // font-weight: 400;
+    font-size: 18px;
+
+    .option-price {
+        font-weight: bold;
+        color: $med-dark-text;
+    }
+}

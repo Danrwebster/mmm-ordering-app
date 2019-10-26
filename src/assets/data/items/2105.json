@@ -1,0 +1,142 @@
+{
+    "descriptor": {
+        "title": "Steak Sandwich",
+        "id": "2105"
+    },
+    "options": [
+        {
+            "sku": "2105A",
+            "name": "5oz",
+            "priceLevel": {
+                "formattedPrice": "$18",
+                "value": 18.00
+            }
+        },
+        {
+            "sku": "2105B",
+            "name": "7oz",
+            "priceLevel": {
+                "formattedPrice": "$21.25",
+                "value": 21.25
+            }
+        }
+    ],
+    "modifierGroup": [
+        {
+            "groupName": "Temperature",
+            "modifiers": [
+                {
+                    "sku": "",
+                    "name": "Blue Rare"
+                },
+                {
+                    "sku": "",
+                    "name": "Rare"
+                },
+                {
+                    "sku": "",
+                    "name": "Medium Rare"
+                },
+                {
+                    "sku": "",
+                    "name": "Medium"
+                },
+                {
+                    "sku": "",
+                    "name": "Medium Well"
+                },
+                {
+                    "sku": "",
+                    "name": "Well"
+                }
+            ],
+            "required": true,
+            "min": 1,
+            "max": 1
+        },
+        {
+            "groupName": "Options",
+            "modifiers": [
+                {
+                    "sku": "2105AA",
+                    "name": "Whiskey Onions",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                },
+                {
+                    "sku": "2105AB",
+                    "name": "Peppercorn Sauce",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                },
+                {
+                    "sku": "2105AC",
+                    "name": "Sautéed Mushrooms",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                },
+                {
+                    "sku": "2105AD",
+                    "name": "Egg",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                }
+            ],
+            "required": false
+        },
+        {
+            "groupName": "Sides",
+            "modifiers": [
+                {
+                    "sku": "2100BA",
+                    "name": "Fries"
+                },
+                {
+                    "sku": "2100BB",
+                    "name": "Onion Rings"
+                },
+                {
+                    "sku": "2100BC",
+                    "name": "Mixed Green Salad"
+                },
+                {
+                    "sku": "2100BD",
+                    "name": "Caesar Salad"
+                },
+                {
+                    "sku": "2100BE",
+                    "name": "Tater Tots"
+                },
+                {
+                    "sku": "2100BF",
+                    "name": "Mashed Potatoes"
+                },
+                {
+                    "sku": "2100BG",
+                    "name": "Rice"
+                },
+                {
+                    "sku": "2100AH",
+                    "name": "Soup",
+                    "priceLevel": {
+                        "formattedPrice": "$2",
+                        "value": 2.00
+                    }
+                }
+            ],
+            "required": true,
+            "min": 1,
+            "max": 1
+        }
+    ],
+    "description": "AAA Alberta sirloin grilled to your liking, seasoned with our house steak spice, & served with ciabatta. Comes with your choice of fries, onion rings, tater tots, mixed green salad, mashed potato, rice, caesar salad, or soup.",
+    "myMenu": false
+}
