@@ -5,14 +5,21 @@ phases:
       - apt-get update
   pre_build:
     commands:
+      - echo Started Pre-Build stage of Demo front end on `date' 
       - npm install
       - npm audit fix
       - npm install -g @angular/cli
   build:
     commands:
-      - ng build --prod              
-      - zip -r site.zip dist/user-front-end
-      - ls
+      # REPLACE XXXXXXXX WITH THE CLOUDFRONT DISTRIBUTION ID OF YOUR STATIC WEBSITE AND UNCOMMENT THE LINE
+      # - aws cloudfront create-invalidation --distribution-id XXXXXXXX --paths "/*"
+      - echo started Build stage
+      - ng build --prod
+      - zip -r demo-site.zip dist/user-front-end
+  post_build:
+    commands:
+      # - echo Started Post Build stage... Syncing folders
+      # - aws s3 sync ./dist/my-personal-menu s3://demo.mymobile.menu --acl 'public-read' --delete
 artifacts:
   files:
-    - site.zip
+    - demo-site.zip
