@@ -17,7 +17,7 @@ phases:
       # - aws cloudfront create-invalidation --distribution-id XXXXXXXX --paths "/*"
       - echo started Build stage
       - ng build --prod
-      - aws s3 sync ./dist/my-personal-menu s3://demo.mymobile.menu --acl 'public-read' --delete
+      - aws s3 sync ./dist/my-personal-menu/ s3://demo.mymobile.menu --acl 'public-read' --delete
       # - zip -r demo-site.zip ./dist/my-personal-menu
   post_build:
     commands:
