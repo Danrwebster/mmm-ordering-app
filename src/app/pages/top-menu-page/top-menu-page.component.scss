@@ -11,10 +11,10 @@
     align-items: center;
     background-color: $primary-accent;
 
-    // background-image: url("../../../assets/images/top-menu-bg.jpg");
-    // background-position: center;
-    // background-size: 100%;
-    // background-repeat: no-repeat;
+    background-image: url("../../../assets/images/top-menu-splash-bg.jpg");
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
 
     @include breakpoint(tablet) {
         width: auto;
@@ -27,7 +27,7 @@
         // font-weight: 400;
         // font-style: normal;
         font-size: 45px;
-        // color: $light-text;
+        color: $light-text;
     }
 }
 

@@ -1,6 +1,6 @@
 {
-    "title": "Food Menu",
-    "imageURL": "",
+    "title": "Ramen",
+    "imageURL": "../../../assets/images/food-splash-bg.jpg",
     "dailySpecial": {
         "descriptor": {
             "title": "MONDAY • 1/2 PRICE PIZZA",
