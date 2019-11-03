@@ -9,8 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $primary-accent;
-
+    background-color: $primary-dark;
     background-image: url("../../../assets/images/top-menu-splash-bg.jpg");
     background-position: center;
     background-size: 100%;
@@ -21,11 +20,9 @@
         margin: 0 0 15px;
     }
 
+
     .menu-title {
         z-index: 1;
-        // font-family: league-gothic, sans-serif;
-        // font-weight: 400;
-        // font-style: normal;
         font-size: 45px;
         color: $light-text;
     }
@@ -50,13 +47,9 @@
 
 
         .menu-category {
-            background-color: #EEEEEE;
+            background-color: $primary-dark;
             border-radius: 4px;
-
-            // color: $light-text;
-            // font-family: league-gothic, sans-serif;
-            // font-weight: 400;
-            // font-style: normal;
+            color: $light-text;
             font-size: 24px;
             text-align: center;
         }
@@ -79,17 +72,9 @@ mat-grid-tile {
     justify-content: center;
     align-items: center;
 
-    // background-color: $primary-dark;
-
     p {
         margin: 0;
         padding: 0;
-
-        // color: $med-dark-text;
-        // font-family: adobe-garamond-pro, serif;
-        // font-weight: 400;
-        // font-style: normal;
-   
     }
 
     @include breakpoint(tablet) {

@@ -13,15 +13,8 @@
 
         mat-expansion-panel-header {
             background-color: transparent;
-
-            // font-family: adobe-garamond-pro, serif;
             font-size: 18px;
-
-            // text-transform: uppercase;
             text-align: center;
-
-            // color: $secondary-accent;
-       
         }
     }
 }
@@ -45,24 +38,10 @@ mat-radio-group {
 .mat-checkbox, .mat-radio-button {
     position: relative;
     margin: 5px 20px;
-
-    // font-family: adobe-garamond-pro, serif;
-    // font-weight: 400;
     font-size: 18px;
 
     &:first-of-type {
         margin-top: 20px;
-
-        // &::before {
-        //     position: absolute;
-        //     top: -20px;
-        //     width: 100%;
-        //     content: "";
-        //     border-bottom-style: solid;
-        //     border-bottom-width: 1px;
-        //     border-bottom-color: $primary-border;
-        // }
-   
     }
 
     &:last-of-type {
@@ -80,8 +59,6 @@ mat-radio-group {
         .mat-content {
             justify-content: center;
 
-            // color: $secondary-accent;
-
             span {
                 opacity: 0.6;
             }
@@ -90,12 +67,5 @@ mat-radio-group {
         .mat-checkbox-label {
             white-space: initial;
         }
-
-        // .mat-expansion-indicator {
-        //     &::after {
-        //         color: $secondary-accent !important;
-        //     }
-        // }
-   
     }
 }

@@ -46,18 +46,11 @@
 
     mat-card-title {
         margin: 20px 0;
-
-        // font-family: league-gothic, sans-serif;
-        // font-weight: 400;
-        // font-style: normal;
         font-size: 24px;
         color: $dark-text;
 
         &.small-title {
-            // font-family: adobe-garamond-pro, serif;
             font-size: 18px;
-
-            // text-transform: uppercase;
             text-align: center;
 
             &::after {
@@ -74,10 +67,6 @@
 
     mat-card-content {
         margin: 0 0 20px;
-
-        // font-family: adobe-garamond-pro, serif;
-        // font-weight: 400;
-        // font-style: normal;
         font-size: 16px;
         color: $dark-text;
     }
@@ -188,10 +177,6 @@ app-item-modifier-list {
     display: none;
 }
 
-// .mat-button-toggle-checked {
-//     background-color: $primary-accent;
-// }
-
 .mat-button-toggle {
     flex: 1 0 auto;
     display: none;
@@ -208,9 +193,6 @@ mat-radio-button {
 
 .mat-checkbox, .mat-radio-button {
     margin: 5px 0;
-
-    // font-family: adobe-garamond-pro, serif;
-    // font-weight: 400;
     font-size: 18px;
 
     .option-price {
