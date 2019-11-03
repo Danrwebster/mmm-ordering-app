@@ -15,8 +15,23 @@
     animation: fade-in-bg 0.1s ease-out 0s 1 forwards;
 
     mat-card {
+        padding: 0;
         background: $card-background;
         border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        .title-container {
+            width: 780px;
+            margin: 10px auto 0;
+
+            @include breakpoint(tablet) {
+                width: auto;
+                margin: 10px 15px 0;
+            }
+        }
     }
 
     .toggle-container {
@@ -30,7 +45,7 @@
     }
 
     mat-card-title {
-        margin: 20px;
+        margin: 20px 0;
 
         // font-family: league-gothic, sans-serif;
         // font-weight: 400;
@@ -58,13 +73,23 @@
     }
 
     mat-card-content {
-        margin: 0 20px 20px;
+        margin: 0 0 20px;
 
         // font-family: adobe-garamond-pro, serif;
         // font-weight: 400;
         // font-style: normal;
         font-size: 16px;
         color: $dark-text;
+    }
+
+    .card {
+        mat-card-title {
+            margin: 20px;
+        }
+
+        mat-card-content {
+            margin: 0 20px 20px;
+        }
     }
 }
 
