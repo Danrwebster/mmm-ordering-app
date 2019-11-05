@@ -23,7 +23,8 @@ import {
 	MatProgressSpinnerModule,
 	MatBottomSheetModule,
 	MatSnackBarModule,
-	MatTabsModule
+	MatTabsModule,
+	MatRippleModule
 } from '@angular/material';
 import { TopMenuPageComponent } from '@pages/top-menu-page/top-menu-page.component';
 import { MenuCategoryPageComponent } from '@pages/menu-category-page/menu-category-page.component';
@@ -99,7 +100,8 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
 		MatBottomSheetModule,
 		MatSnackBarModule,
 		ReactiveFormsModule,
-		MatTabsModule
+		MatTabsModule,
+		MatRippleModule
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

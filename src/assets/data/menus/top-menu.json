@@ -1,21 +1,21 @@
 [
     {
         "descriptor": {
-            "title": "Drinks Menu",
+            "title": "Appetizers",
             "id": "1"
         },
         "imageURL": ""
     },
     {
         "descriptor": {
-            "title": "Food Menu",
+            "title": "Ramen",
             "id": "2"
         },
         "imageURL": ""
     },
     {
         "descriptor": {
-            "title": "Hangover Breakfast",
+            "title": "Drinks",
             "id": "3"
         },
         "imageURL": ""
