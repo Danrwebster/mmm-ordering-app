@@ -5,7 +5,7 @@ import { IMenuItemDetails, IMenu } from './shared/_models/menu.model';
 import { AuthenticationService } from '@services/authentication.service';
 import { AmplifyService } from 'aws-amplify-angular';
 import { PlatformLocation } from '@angular/common';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { TicketService } from '@services/ticket.service';
 import { CallService } from '@services/call.service';
 import { ModalService, IModalConfig } from '@services/modal.service';
