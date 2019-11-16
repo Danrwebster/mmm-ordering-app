@@ -4,6 +4,7 @@ import { map, tap, catchError } from 'rxjs/operators';
 import { of, Observable, BehaviorSubject, from } from 'rxjs';
 import Amplify, { Auth } from 'aws-amplify';
 import { AWS_REGION, AWS_USER_POOL_ID, AWS_USER_POOL_WEB_CLIENT_ID } from '@configs/cognito.config';
+import { eFormType } from '../constants';
 
 class MyStorage {
 	static syncPromise = null;
@@ -46,6 +47,7 @@ class MyStorage {
 export class AuthenticationService {
 
 	public loggedIn$ = new BehaviorSubject<boolean>(false);
+	private _loginFormState: eFormType = eFormType.LOGIN;
 
 	constructor(
 		private router: Router
@@ -70,17 +72,51 @@ export class AuthenticationService {
 		});
 	}
 
-	/** signup */
-	public signUp(userName: string, password: string): Observable<any> {
-		return from(Auth.signUp(userName, password));
+	// signup
+	public signUp(firstName: string, lastName: string, password: string, email: string, phone?: string): Observable<any> {
+		const signUpBlob = {
+			'username': email,
+			'password': password,
+			'attributes': {
+				'email': email,
+				'given_name': firstName,
+				'family_name': lastName,
+			}
+		};
+
+		if (phone) {
+			signUpBlob.attributes['phone_number'] = phone;
+		}
+
+		return from(Auth.signUp(signUpBlob))
+			.pipe(
+				catchError(error => {
+					return of({ error: error });
+				})
+			);
 	}
 
-	/** confirm code */
+	// confirm code
 	public confirmSignUp(userName: string, code: string): Observable<any> {
-		return from(Auth.confirmSignUp(userName, code));
+		return from(Auth.confirmSignUp(userName, code))
+			.pipe(
+				catchError(error => {
+					return of({ error: error });
+				})
+			);
 	}
 
-	/** signin */
+	// resend confirm signup code
+	public resendConfirmSignUp(userName: string): Observable<any> {
+		return from(Auth.resendSignUp(userName))
+			.pipe(
+				catchError(error => {
+					return of({ error: error });
+				})
+			);
+	}
+
+	// signin
 	public signIn(userName: string, password: string): Observable<any> {
 		return from(Auth.signIn(userName, password))
 			.pipe(
@@ -92,7 +128,27 @@ export class AuthenticationService {
 			);
 	}
 
-	/** get authenticat state */
+	// forgot password - request reset
+	public forgotPassword(userName: string): Observable<any> {
+		return from(Auth.forgotPassword(userName))
+			.pipe(
+				catchError(error => {
+					return of({ error: error });
+				})
+			);
+	}
+
+	// reset password with reset code
+	public forgotPasswordSubmit(userName: string, resetCode: string, newPassword: string): Observable<any> {
+		return from(Auth.forgotPasswordSubmit(userName, resetCode, newPassword))
+			.pipe(
+				catchError(error => {
+					return of({ error: error });
+				})
+			);
+	}
+
+	// get authenticated state
 	public isAuthenticated(): Observable<boolean> {
 		return from(Auth.currentAuthenticatedUser())
 			.pipe(
@@ -113,7 +169,7 @@ export class AuthenticationService {
 			.subscribe(
 				result => {
 					this.loggedIn$.next(false);
-					this.router.navigate(['/topMenu']);
+					this.router.navigate(['/login']);
 				},
 				error => console.log(error)
 			);
@@ -122,5 +178,17 @@ export class AuthenticationService {
 	public getAccessToken(): string {
 		const accessToken = MyStorage.getItem(`${MyStorage.getItem('LastAuthUser')}` + '.accessToken');
 		return accessToken;
+	}
+
+	public get loginFormState(): eFormType {
+		return this._loginFormState;
+	}
+
+	public set loginFormState(value: eFormType) {
+		this._loginFormState = value;
+	}
+
+	public resetLoginFormState() {
+		this._loginFormState = eFormType.LOGIN;
 	}
 }

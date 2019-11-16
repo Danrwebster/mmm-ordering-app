@@ -42,10 +42,10 @@
             }
         }
     }
-}
 
-mat-card-content {
-    margin: 0;
+    mat-card-title {
+        margin: 20px;
+    }
 }
 
 mat-card-content {
@@ -53,6 +53,10 @@ mat-card-content {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+
+    &.confirmation-text {
+        margin: 0 20px;
+    }
 }
 
 mat-spinner {

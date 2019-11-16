@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MenuService } from '@services/menu.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { IMenuDetails, IMenuItemDetails } from '@models/menu.model';
 import { filter } from 'rxjs/operators';
@@ -51,5 +51,14 @@ export class MenuCategoryPageComponent implements OnInit, OnDestroy {
 
 	public showItem(sku: string) {
 		this._menuService.lookupItem(sku);
+	}
+
+	public canDeactivate(): Observable<boolean> | boolean {
+		if (this._menuService.showModal) {
+			this._menuService.showModal = false;
+			return false;
+		} else {
+			return true;
+		}
 	}
 }

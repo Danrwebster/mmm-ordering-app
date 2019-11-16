@@ -9,63 +9,47 @@ import { PageNotFoundPageComponent } from '@pages/page-not-found-page/page-not-f
 import { MenuCategoryResolver } from './category-list.resolver';
 import { TopMenuResolver } from './top-menu.resolver';
 import { MyMobileMenuResolver } from './my-mobile-menu.resolver';
-// import { OrderStatusPageComponent } from '@pages/order-status-page/order-status-page.component';
 import { TabPageComponent } from '@pages/tab-page/tab-page.component';
 import { RequestServicePageComponent } from '@pages/request-service-page/request-service-page.component';
-// import { HelpPageComponent } from '@pages/help-page/help-page.component';
 import { AboutPageComponent } from '@pages/about-page/about-page.component';
-// import { OrderHistoryPageComponent } from '@pages/order-history-page/order-history-page.component';
 import { AuthGuard } from '@guards/auth.guard';
-import { ModalGuard } from '@guards/modal.guard';
+import { CanDeactivateGuard } from '@guards/can-deactivate.guard';
 
 const routes: Routes = [
 	{
 		path: 'login',
 		component: LoginPageComponent,
 		data: { title: 'Login' },
-		canActivate: [ModalGuard]
+		runGuardsAndResolvers: 'always',
+		canDeactivate: [CanDeactivateGuard]
 	},
 	{
 		path: 'profile',
 		component: ProfileSettingsPageComponent,
 		data: { title: 'Profile Settings' },
-		canActivate: [AuthGuard, ModalGuard]
+		runGuardsAndResolvers: 'always',
+		canActivate: [AuthGuard]
 	},
-	// {
-	// 	path: 'order',
-	// 	component: OrderStatusPageComponent,
-	// 	data: { title: 'Order Status' },
-	// 	canActivate: [ModalGuard]
-	// },
-	// {
-	// 	path: 'history',
-	// 	component: OrderHistoryPageComponent,
-	// 	data: { title: 'Order History' },
-	// 	canActivate: [AuthGuard, ModalGuard]
-	// },
 	{
 		path: 'tab',
 		component: TabPageComponent,
 		data: { title: 'Tab' },
-		canActivate: [ModalGuard] // Guest Access Allowed
+		runGuardsAndResolvers: 'always',
+		// canActivate: [AuthGuard]
 	},
 	{
 		path: 'service',
 		component: RequestServicePageComponent,
 		data: { title: 'Request Service' },
-		canActivate: [ModalGuard] // Guest Access Allowed
+		runGuardsAndResolvers: 'always',
+		// canActivate: [AuthGuard]
 	},
-	// {
-	// 	path: 'help',
-	// 	component: HelpPageComponent,
-	// 	data: { title: 'Help' },
-	// 	canActivate: [AuthGuard, ModalGuard] // Guest Access Allowed
-	// },
 	{
 		path: 'about',
 		component: AboutPageComponent,
 		data: { title: 'About' },
-		canActivate: [ModalGuard] // Guest Access Allowed
+		runGuardsAndResolvers: 'always',
+		// canActivate: [AuthGuard]
 	},
 	{
 		path: 'topMenu',
@@ -75,7 +59,7 @@ const routes: Routes = [
 		resolve: {
 			topMenu: TopMenuResolver
 		},
-		canActivate: [ModalGuard] // Guest Access Allowed
+		// canActivate: [AuthGuard]
 	},
 	{
 		path: 'menu/:id',
@@ -85,7 +69,8 @@ const routes: Routes = [
 		resolve: {
 			menuCategories: MenuCategoryResolver
 		},
-		canActivate: [ModalGuard] // Guest Access Allowed
+		canDeactivate: [CanDeactivateGuard],
+		// canActivate: [AuthGuard]
 	},
 	{
 		path: 'myMobileMenu',
@@ -95,7 +80,7 @@ const routes: Routes = [
 		resolve: {
 			menuCategories: MyMobileMenuResolver
 		},
-		canActivate: [AuthGuard, ModalGuard]
+		// canActivate: [AuthGuard]
 	},
 	{
 		path: '',
@@ -108,6 +93,6 @@ const routes: Routes = [
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule],
-	providers: [MenuCategoryResolver, TopMenuResolver, MyMobileMenuResolver]
+	providers: [MenuCategoryResolver, TopMenuResolver, MyMobileMenuResolver, CanDeactivateGuard]
 })
 export class AppRoutingModule { }

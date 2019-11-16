@@ -1,9 +1,10 @@
-<mat-card id="card-container">
-	<mat-card-content class="mat-elevation-z2">
+<mat-card id="card-container" [ngSwitch]="formType">
+
+	<mat-card-content *ngSwitchCase="formTypes.LOGIN" class="mat-elevation-z2">
 		<form class="form-container" [formGroup]="loginForm">
 			<mat-form-field>
-				<input matInput placeholder="Enter User Name" formControlName="userName"
-					(focus)="clearError('userName')" required>
+				<input matInput placeholder="Enter User Name" formControlName="username"
+					(focus)="clearError('username')" required>
 				<mat-error *ngIf="userNameInvalid">Invalid User Name</mat-error>
 			</mat-form-field>
 
@@ -16,21 +17,162 @@
 		</form>
 
 		<form class="flex-container button" [formGroup]="loginForm" (ngSubmit)="signIn()">
+			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button" routerLink="/topMenu">
+				Guest
+			</button>
 			<button class="mat-elevation-z2" mat-flat-button color="accent" [disabled]="!enableSignIn()" type="submit">
 				<ng-container *ngIf="!loading">
-					Login
+					Sign In
 				</ng-container>
 				<ng-container *ngIf="loading">
 					<mat-spinner [diameter]="'20'"></mat-spinner>
 				</ng-container>
 			</button>
-			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button" routerLink="/topMenu">Guest</button>
 		</form>
-
 		<div class="flex-container secondary">
-			<button mat-button disabled>Forgot Password?</button>
+			<button mat-button (click)="formType = formTypes.REQUEST_RESET">Forgot Password?</button>
 			<span>&bull;</span>
-			<button mat-button color="accent" disabled>Create Account</button>
+			<button mat-button color="accent" (click)="formType = formTypes.SIGNUP">Create Account</button>
 		</div>
 	</mat-card-content>
+
+	<!-- Need to put in new validator check for email field on password formGroup-->
+	<!-- Need to put in case for when email does not exist in pool -->
+	<mat-card-content *ngSwitchCase="formTypes.REQUEST_RESET" class="mat-elevation-z2">
+		<form class="form-container" [formGroup]="passwordForm">
+			<mat-form-field>
+				<input matInput placeholder="Enter Email" formControlName="email" (focus)="clearError('email')"
+					required>
+				<mat-error *ngIf="emailInvalid">Invalid Email</mat-error>
+			</mat-form-field>
+		</form>
+		<form class="flex-container button" [formGroup]="passwordForm" (ngSubmit)="requestReset()">
+			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button"
+				(click)="formType = formTypes.LOGIN">
+				Back
+			</button>
+			<button class="mat-elevation-z2" mat-flat-button color="accent" type="submit">
+				<ng-container *ngIf="!loading">
+					Request Reset
+				</ng-container>
+				<ng-container *ngIf="loading">
+					<mat-spinner [diameter]="'20'"></mat-spinner>
+				</ng-container>
+			</button>
+		</form>
+	</mat-card-content>
+
+	<!-- Need to put in validators for proper password (8 length, 1 upper, 1 lower, 1 special) -->
+	<!-- Need new error state checks for each field -->
+	<mat-card-content *ngSwitchCase="formTypes.RESET_SUBMIT" class="mat-elevation-z2">
+		<mat-card-title>Password Reset</mat-card-title>
+		<mat-card-content class="confirmation-text">Enter the verification code within the email to reset your password.
+		</mat-card-content>
+		<div class="form-container">
+			<mat-form-field>
+				<input matInput value="{{codeDelivery.Destination}}" disabled>
+			</mat-form-field>
+		</div>
+		<form class="form-container" [formGroup]="passwordResetForm">
+			<mat-form-field>
+				<input matInput placeholder="Enter Code" formControlName="code" (focus)="clearError('code')" required>
+				<mat-error *ngIf="codeInvalid">Invalid Code</mat-error>
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+					formControlName="password" (focus)="clearError('password')" required>
+				<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+				<mat-error *ngIf="passwordInvalid">Invalid password</mat-error>
+			</mat-form-field>
+		</form>
+		<form class="flex-container button" [formGroup]="passwordResetForm" (ngSubmit)="submitResetPassword()">
+			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button" (click)="requestReset()">
+				Resend
+			</button>
+			<button class="mat-elevation-z2" mat-flat-button [disabled]="!enableReset()" color="accent" type="submit">
+				<ng-container *ngIf="!loading">
+					Reset Password
+				</ng-container>
+				<ng-container *ngIf="loading">
+					<mat-spinner [diameter]="'20'"></mat-spinner>
+				</ng-container>
+			</button>
+		</form>
+	</mat-card-content>
+
+	<!-- Need to put in validators for proper email addresses -->
+	<!-- Need to put in validators for proper password (8 length, 1 upper, 1 lower, 1 special) -->
+	<!-- Need new error state checks for each field -->
+	<mat-card-content *ngSwitchCase="formTypes.SIGNUP" class="mat-elevation-z2">
+		<form class="form-container" [formGroup]="signUpForm">
+			<mat-form-field>
+				<input matInput placeholder="Enter First Name" formControlName="given_name"
+					(focus)="clearError('given_name')" required>
+				<mat-error *ngIf="given_nameInvalid">Invalid User Name</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Enter Last Name" formControlName="family_name"
+					(focus)="clearError('family_name')" required>
+				<mat-error *ngIf="family_nameInvalid">Invalid Last Name</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+					formControlName="password" (focus)="clearError('password')" required>
+				<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+				<mat-error *ngIf="passwordInvalid">8 characters, uppercase, lowercase, special characters</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Enter Email" formControlName="email" (focus)="clearError('email')"
+					required>
+				<mat-error *ngIf="emailInvalid">Invalid Email</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Enter Phone" formControlName="phone_number"
+					(focus)="clearError('phone_number')">
+				<mat-error *ngIf="phoneInvalid">Invalid Phone</mat-error>
+			</mat-form-field>
+		</form>
+		<form class="flex-container button" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button"
+				(click)="formType = formTypes.LOGIN">
+				Back
+			</button>
+			<button class="mat-elevation-z2" mat-flat-button color="accent" type="submit">
+				<ng-container *ngIf="!loading">
+					Sign Up
+				</ng-container>
+				<ng-container *ngIf="loading">
+					<mat-spinner [diameter]="'20'"></mat-spinner>
+				</ng-container>
+			</button>
+		</form>
+	</mat-card-content>
+
+	<!-- Need a snackbar for resend confirmation call notifications -->
+	<mat-card-content *ngSwitchCase="formTypes.CONFIRM" class="mat-elevation-z2">
+		<mat-card-title>Confirm Sign-up</mat-card-title>
+		<mat-card-content class="confirmation-text">A confirmation email has been sent to the below address.
+		</mat-card-content>
+		<div class="form-container">
+			<mat-form-field>
+				<input matInput value="{{codeDelivery.Destination}}" disabled>
+			</mat-form-field>
+		</div>
+		<div class="flex-container button">
+			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button"
+				(click)="resendConfirmSignUp()">
+				Resend
+			</button>
+			<button class="mat-elevation-z2" mat-flat-button color="accent" type="button" (click)="backToSignIn()">
+				<ng-container *ngIf="!loading">
+					Back to Sign In
+				</ng-container>
+				<ng-container *ngIf="loading">
+					<mat-spinner [diameter]="'20'"></mat-spinner>
+				</ng-container>
+			</button>
+		</div>
+	</mat-card-content>
+
 </mat-card>
