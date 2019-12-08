@@ -13,7 +13,7 @@
 
 
     .form-container {
-        margin: 20px;
+        margin: 0 20px 20px;
         display: flex;
         flex-direction: column;
 
@@ -59,7 +59,7 @@ mat-card-content {
     align-items: stretch;
 
     &.confirmation-text {
-        margin: 0 20px;
+        margin: 0 20px 20px;
     }
 }
 

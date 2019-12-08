@@ -1,6 +1,7 @@
 <mat-card id="card-container" [ngSwitch]="formType">
 
 	<mat-card-content *ngSwitchCase="formTypes.LOGIN" class="mat-elevation-z2">
+			<mat-card-title>Sign In to Your Account</mat-card-title>
 		<form class="form-container" [formGroup]="loginForm">
 			<mat-form-field>
 				<input matInput placeholder="Enter User Name" formControlName="username"
@@ -37,7 +38,7 @@
 	</mat-card-content>
 
 	<mat-card-content *ngSwitchCase="formTypes.REQUEST_RESET" class="mat-elevation-z2">
-		<mat-card-title>Password Reset</mat-card-title>
+		<mat-card-title>Reset Your Password</mat-card-title>
 		<mat-card-content class="confirmation-text">
 			Enter a valid email address to receive a password reset code.
 		</mat-card-content>
@@ -67,7 +68,7 @@
 	</mat-card-content>
 
 	<mat-card-content *ngSwitchCase="formTypes.RESET_SUBMIT" class="mat-elevation-z2">
-		<mat-card-title>New Password Entry</mat-card-title>
+		<mat-card-title>Enter Your New Password</mat-card-title>
 		<mat-card-content class="confirmation-text">
 			Enter the code within the email to reset your password.
 		</mat-card-content>
@@ -107,6 +108,7 @@
 	</mat-card-content>
 
 	<mat-card-content *ngSwitchCase="formTypes.SIGNUP" class="mat-elevation-z2">
+			<mat-card-title>Create a Profile</mat-card-title>
 		<form class="form-container" [formGroup]="signUpForm">
 			<mat-form-field>
 				<input matInput placeholder="Enter First Name" formControlName="given_name"
@@ -152,7 +154,7 @@
 	</mat-card-content>
 
 	<mat-card-content *ngSwitchCase="formTypes.CONFIRM" class="mat-elevation-z2">
-		<mat-card-title>Confirm Sign-up</mat-card-title>
+		<mat-card-title>Confirm Sign up</mat-card-title>
 		<mat-card-content class="confirmation-text">A confirmation email has been sent to the below address.
 		</mat-card-content>
 		<div class="form-container">
