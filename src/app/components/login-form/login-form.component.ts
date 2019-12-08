@@ -1,8 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthenticationService } from '@services/authentication.service';
 import { eFormType } from 'src/app/shared/constants';
 import { ICodeDeliveryDetails } from '@models/authentication.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
 	selector: 'app-login-form',
@@ -30,7 +31,8 @@ export class LoginFormComponent implements OnInit {
 
 	constructor(
 		private _authenticationService: AuthenticationService,
-		private _formBuilder: FormBuilder
+		private _formBuilder: FormBuilder,
+		private _snackBar: MatSnackBar
 	) { }
 
 	ngOnInit() {
@@ -42,12 +44,31 @@ export class LoginFormComponent implements OnInit {
 		});
 
 		this.signUpForm = this._formBuilder.group({
-			given_name: ['', Validators.required],
+			given_name: ['', Validators.compose(
+				[
+					Validators.required,
+					Validators.pattern(/^.{1,16}$/)
+				]
+			)],
 			family_name: ['', Validators.required],
 			password: ['', Validators.compose(
-				[Validators.required, Validators.minLength(8)])], // NEED PASSWORD VALIDATOR (length > 7, uppercase > 0, lowercase > 0, special > 0)
-			email: ['', Validators.required, Validators.email], // NEED EMAIL VALIDATOR
-			phone_number: ['', Validators.required] // NEED PHONE NUMBER VALIDATOR
+				[
+					Validators.required,
+					Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])[A-Za-z].{7,}/)
+				])
+			],
+			email: ['', Validators.compose(
+				[
+					Validators.required,
+					Validators.email
+				])
+			],
+			phone_number: ['', Validators.compose(
+				[
+					Validators.required,
+					Validators.pattern(/^\+?(?:[0-9]?){6,14}[0-9]$/)
+				])
+			]
 		});
 
 		this.passwordForm = this._formBuilder.group({
@@ -59,7 +80,11 @@ export class LoginFormComponent implements OnInit {
 			username: ['', Validators.required],
 			code: ['', Validators.required],
 			password: ['', Validators.compose(
-				[Validators.required, Validators.minLength(8)])] // NEED PASSWORD VALIDATOR (length > 7, uppercase > 0, lowercase > 0, special > 0)
+				[
+					Validators.required,
+					Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])[A-Za-z].{7,}/)
+				])
+			]
 		});
 
 		this.confirmForm = this._formBuilder.group({
@@ -82,12 +107,47 @@ export class LoginFormComponent implements OnInit {
 		return this._loading;
 	}
 
+	public resetForms(): void {
+		this.loginForm.reset();
+		this.signUpForm.reset();
+		this.passwordForm.reset();
+		this.passwordResetForm.reset();
+		this.confirmForm.reset();
+	}
+
+	public loginNavigate(value: eFormType) {
+		switch (value) {
+			case eFormType.LOGIN:
+				this.resetForms();
+				this.formType = eFormType.LOGIN;
+				break;
+			case eFormType.CONFIRM:
+				this.formType = eFormType.CONFIRM;
+				break;
+			case eFormType.REQUEST_RESET:
+				this.loginForm.reset();
+				this.passwordResetForm.reset();
+				this.formType = eFormType.REQUEST_RESET;
+				break;
+			case eFormType.RESET_SUBMIT:
+				this.formType = eFormType.RESET_SUBMIT;
+				break;
+			case eFormType.SIGNUP:
+				this.loginForm.reset();
+				this.formType = eFormType.SIGNUP;
+				break;
+			case eFormType.SIGNED_IN:
+				this.resetForms();
+				this.formType = eFormType.SIGNED_IN;
+				break;
+			default:
+		}
+	}
+
 	public signIn(): void {
 		this._loading = true;
 		this._authenticationService.signIn(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
 			.subscribe(value => {
-				console.log('VALUE: ', value);
-
 				if (value.error) {
 					switch (value.error.code) {
 						case 'UserNotFoundException':
@@ -99,51 +159,17 @@ export class LoginFormComponent implements OnInit {
 							this._loading = false;
 							break;
 						case 'PasswordResetRequiredException':
-							this.formType = eFormType.RESET_SUBMIT;
-							break;
-						case 'UserNotConfirmedException':
+							this.loginNavigate(eFormType.RESET_SUBMIT);
 							break;
 						default:
 					}
 				} else {
 					if (value.challengeName) {
 						switch (value.challengeName) {
-							case 'SMS_MFA':
-							case 'SOFTWARE_TOKEN_MFA':
-								this.formType = eFormType.MFA;
-								// You need to get the code from the UI inputs
-								// and then trigger the following function with a button click
-								// If MFA is enabled, sign-in should be confirmed with the confirmation code
-								// const loggedUser = await Auth.confirmSignIn(
-								// 	user,   // Return object from Auth.signIn()
-								// 	code,   // Confirmation code from user input
-								// 	mfaType // MFA Type e.g. SMS, TOTP.
-								// );
-								break;
 							case 'NEW_PASSWORD_REQUIRED':
-								this.formType = eFormType.RESET_SUBMIT;
-								// const { requiredAttributes } = user.challengeParam; // the array of required attributes, e.g ['email', 'phone_number']
-								// You need to get the new password and required attributes from the UI inputs
-								// and then trigger the following function with a button click
-								// For example, the email and phone_number are required attributes
-								// const { username, email, phone_number } = getInfoFromUserInput();
-								// const loggedUser = await Auth.completeNewPassword(
-								// 	user,               // the Cognito User Object
-								// 	newPassword,       // the new password
-								// 	// OPTIONAL, the required attributes
-								// 	{
-								// 		email,
-								// 		phone_number,
-								// 	}
-								// );
+								this.loginNavigate(eFormType.RESET_SUBMIT);
 								break;
-							case 'MFA_SETUP':
-								this.formType = eFormType.MFA;
-								// This happens when the MFA method is TOTP
-								// The user needs to setup the TOTP before using it
-								// More info please check the Enabling MFA part
-								// Auth.setupTOTP(user);
-								break;
+							default:
 						}
 					} else {
 						this.login.emit(true);
@@ -152,41 +178,111 @@ export class LoginFormComponent implements OnInit {
 			});
 	}
 
-	public enableSignIn(): boolean {
-		return this.loginForm.controls.username.valid && this.loginForm.controls.password.valid;
+	public get enableSignIn(): boolean {
+		return this.loginForm.valid && !this.loginForm.pristine;
 	}
 
-	public passwordInvalid(form: FormGroup): boolean {
-		if (this.loginForm.controls.password.errors) {
-			return this.loginForm.controls.password.errors.incorrect ? this.loginForm.controls.password.errors.incorrect : false;
-		} else {
-			return false;
+	public get enableSignUp(): boolean {
+		return this.signUpForm.valid && !this.signUpForm.pristine;
+	}
+
+	public get enableResetRequest(): boolean {
+		return this.passwordForm.valid && !this.passwordForm.pristine;
+	}
+
+	public get enablePasswordReset(): boolean {
+		return this.passwordResetForm.valid && !this.passwordResetForm.pristine;
+	}
+
+	public passwordInvalid(form: string): boolean {
+		switch (form) {
+			case 'signUp':
+				return this.signUpForm.controls.password.hasError('pattern');
+			case 'login':
+				return this.loginForm.controls.password.hasError('incorrect');
+			case 'reset':
+				return this.passwordResetForm.controls.password.hasError('pattern');
+			default:
+				return false;
 		}
 	}
 
 	public get userNameInvalid(): boolean {
-		if (this.loginForm.controls.username.errors) {
-			return this.loginForm.controls.username.errors.incorrect ? this.loginForm.controls.username.errors.incorrect : false;
-		} else {
-			return false;
-		}
+		return this.loginForm.controls.username.hasError('incorrect');
 	}
 
 	public get codeInvalid(): boolean {
-		if (this.passwordResetForm.controls.code.errors) {
-			return this.passwordResetForm.controls.code.errors.incorrect ? this.passwordResetForm.controls.code.errors.incorrect : false;
-		} else {
-			return false;
+		return this.passwordResetForm.controls.code.hasError('incorrect');
+	}
+
+	public get codeExpired(): boolean {
+		return this.passwordResetForm.controls.code.hasError('expired');
+	}
+
+	public emailInvalid(form: string): boolean {
+		switch (form) {
+			case 'signUp':
+				return this.signUpForm.controls.email.hasError('email');
+			case 'taken':
+				return this.signUpForm.controls.email.hasError('taken');
+			case 'resetRequest':
+				return this.passwordForm.controls.email.hasError('email');
+			case 'notFound':
+				return this.passwordForm.controls.email.hasError('notFound');
+			default:
+				return false;
 		}
+	}
+
+	public get givenNameInvalid(): boolean {
+		return this.signUpForm.controls.given_name.hasError('pattern');
+	}
+
+	public get phoneInvalid(): boolean {
+		return this.signUpForm.controls.phone_number.hasError('pattern');
 	}
 
 	public clearError(targetForm: string): void {
 		switch (targetForm) {
-			case 'password':
-				this.loginForm.controls.password.setErrors(null);
-				break;
 			case 'username':
-				this.loginForm.controls.username.setErrors(null);
+				if (this.loginForm.controls.username.errors) {
+					this.loginForm.controls.username.setErrors(null);
+				}
+				break;
+			case 'passwordLogin':
+				if (this.loginForm.controls.password.errors) {
+					this.loginForm.controls.password.setErrors(null);
+				}
+				break;
+			case 'email':
+				if (this.passwordForm.controls.email.errors) {
+					this.passwordForm.controls.email.setErrors(null);
+				}
+				break;
+			case 'code':
+				if (this.passwordResetForm.controls.code.errors) {
+					this.passwordResetForm.controls.code.setErrors(null);
+				}
+				break;
+			case 'passwordReset':
+				if (this.passwordResetForm.controls.password.errors) {
+					this.passwordResetForm.controls.password.setErrors(null);
+				}
+				break;
+			case 'givenName':
+				if (this.signUpForm.controls.given_name.errors) {
+					this.signUpForm.controls.given_name.setErrors(null);
+				}
+				break;
+			case 'familyName':
+				if (this.signUpForm.controls.family_name.errors) {
+					this.signUpForm.controls.family_name.setErrors(null);
+				}
+				break;
+			case 'phoneNumber':
+				if (this.signUpForm.controls.phone_number.errors) {
+					this.signUpForm.controls.phone_number.setErrors(null);
+				}
 				break;
 			default:
 		}
@@ -194,6 +290,14 @@ export class LoginFormComponent implements OnInit {
 
 	public signUp(): void {
 		this._loading = true;
+
+		let phoneNumber = this.signUpForm.controls.phone_number.value;
+
+		if (phoneNumber.charAt(0) !== '+') {
+			phoneNumber = '+' + phoneNumber;
+			this.signUpForm.controls.phone_number.setValue(phoneNumber);
+		}
+
 		this._authenticationService.signUp(
 			this.signUpForm.controls.given_name.value,
 			this.signUpForm.controls.family_name.value,
@@ -204,13 +308,23 @@ export class LoginFormComponent implements OnInit {
 				this._loading = false;
 
 				if (value.error) {
-					console.log('ERROR!', value.error);
+					switch (value.error.code) {
+						case 'UsernameExistsException':
+							this.signUpForm.controls.email.setErrors({ 'taken': true });
+							break;
+						default:
+							this._snackBar.open('Unable to Create Account', 'Service Error', {
+								duration: 2000,
+								verticalPosition: 'top'
+							});
+					}
 				} else {
 					if (!value.userConfirmed) {
 						this._codeDelivery.AttributeName = value.codeDeliveryDetails.AttributeName;
 						this._codeDelivery.DeliveryMedium = value.codeDeliveryDetails.DeliveryMedium;
 						this._codeDelivery.Destination = value.codeDeliveryDetails.Destination;
-						this.formType = eFormType.CONFIRM;
+
+						this.loginNavigate(eFormType.CONFIRM);
 					}
 				}
 			});
@@ -220,18 +334,30 @@ export class LoginFormComponent implements OnInit {
 		this._loading = true;
 		this._authenticationService.forgotPassword(this.passwordForm.controls.email.value)
 			.subscribe(value => {
-				console.log('VALUE: ', value); // STILL NEED PROPER SUCCESS/ERROR HANDLING
 				this._loading = false;
-				if (value.CodeDeliveryDetails) {
-					this._codeDelivery.AttributeName = value.CodeDeliveryDetails.AttributeName;
-					this._codeDelivery.DeliveryMedium = value.CodeDeliveryDetails.DeliveryMedium;
-					this._codeDelivery.Destination = value.CodeDeliveryDetails.Destination;
-					this.formType = eFormType.RESET_SUBMIT;
-				}
 
-				if (value.error) {
-					console.log('ERROR!', value.error);
-				} else {
+				if (value) {
+					if (value.error) {
+						switch (value.error.code) {
+							case 'UserNotFoundException':
+								this.passwordForm.controls.email.setErrors({ 'notFound': true });
+								break;
+							default:
+								this._snackBar.open('Service Unavailable', 'Error', {
+									duration: 2000,
+									verticalPosition: 'top'
+								});
+						}
+					} else {
+						if (value.CodeDeliveryDetails) {
+							this._codeDelivery.AttributeName = value.CodeDeliveryDetails.AttributeName;
+							this._codeDelivery.DeliveryMedium = value.CodeDeliveryDetails.DeliveryMedium;
+							this._codeDelivery.Destination = value.CodeDeliveryDetails.Destination;
+							this.passwordResetForm.controls.username.setValue(this.passwordForm.controls.email.value);
+
+							this.loginNavigate(eFormType.RESET_SUBMIT);
+						}
+					}
 				}
 			});
 	}
@@ -243,27 +369,30 @@ export class LoginFormComponent implements OnInit {
 			this.passwordResetForm.controls.code.value,
 			this.passwordResetForm.controls.password.value)
 			.subscribe(value => {
-				console.log('VALUE: ', value); // STILL NEED PROPER SUCCESS/ERROR HANDLING
-				this._loading = false;
-				this.backToSignIn();
-
-				if (value.error) {
-					console.log('ERROR!', value.error);
-				} else {
-				}
-			});
-	}
-
-	public confirmSignUp(): void {
-		this._loading = true;
-		this._authenticationService.confirmSignUp(this.confirmForm.controls.username.value, this.confirmForm.controls.code.value)
-			.subscribe(value => {
-				console.log('VALUE: ', value); // STILL NEED PROPER SUCCESS/ERROR HANDLING
 				this._loading = false;
 
-				if (value.error) {
-					console.log('ERROR!', value.error);
+				if (value) {
+					if (value.error) {
+						switch (value.error.code) {
+							case 'CodeMismatchException':
+								this.passwordResetForm.controls.code.setErrors({ 'incorrect': true });
+								break;
+							case 'ExpiredCodeException':
+								this.passwordResetForm.controls.code.setErrors({ 'expired': true });
+								break;
+							default:
+								this._snackBar.open('Unable to Reset Password', 'Service Error', {
+									duration: 2000,
+									verticalPosition: 'top'
+								});
+						}
+					}
 				} else {
+					this.backToSignIn();
+					this._snackBar.open('Password Reset', 'Success', {
+						duration: 2000,
+						verticalPosition: 'top'
+					});
 				}
 			});
 	}
@@ -272,17 +401,21 @@ export class LoginFormComponent implements OnInit {
 		this._loading = true;
 		this._authenticationService.resendConfirmSignUp(this.signUpForm.controls.email.value)
 			.subscribe(value => {
-				console.log('VALUE: ', value); // STILL NEED PROPER SUCCESS/ERROR HANDLING
 				this._loading = false;
 
 				if (value.error) {
-					console.log('ERROR!', value.error);
+					this._snackBar.open('Unable to Resend Confirmation Email', 'Service Error', {
+						duration: 2000,
+						verticalPosition: 'top'
+					});
 				} else {
+					this._snackBar.open('Confirmation Email', 'Sent', {
+						duration: 2000,
+						verticalPosition: 'top'
+					});
 				}
 			});
 	}
-
-	// NEED TO DISABLE BUTTONS FOR ALL FORMS UNTIL FORMS VALID
 
 	public get formType(): eFormType {
 		return this._authenticationService.loginFormState;
@@ -298,17 +431,13 @@ export class LoginFormComponent implements OnInit {
 
 	public backToSignIn(): void {
 		this.resetCodeDelivery();
-		this.formType = eFormType.LOGIN;
+		this.loginNavigate(eFormType.LOGIN);
 	}
 
 	public resetCodeDelivery(): void {
 		this._codeDelivery.AttributeName = '';
 		this._codeDelivery.DeliveryMedium = '';
 		this._codeDelivery.Destination = '';
-	}
-
-	public enableReset(): boolean {
-			return this.passwordResetForm.controls.code.valid && this.passwordResetForm.controls.password.valid;
 	}
 
 }

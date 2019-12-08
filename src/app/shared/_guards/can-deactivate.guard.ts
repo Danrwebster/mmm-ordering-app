@@ -11,7 +11,6 @@ export class CanDeactivateGuard implements CanDeactivate<CanComponentDeactivate>
 	constructor() { }
 
 	canDeactivate(component: CanComponentDeactivate): Observable<boolean> | boolean {
-		console.log('canDeactivate Component: ', component);
 		return component.canDeactivate ? component.canDeactivate() : true;
 	}
 }

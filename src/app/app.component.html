@@ -23,8 +23,11 @@
                             About
                         </mat-list-item>
                         <hr>
-                        <mat-list-item routerLink="/login" [class.disabled]="!isAuthenticated" (click)="logout()">
+                        <mat-list-item *ngIf="isAuthenticated" routerLink="/login" (click)="logout()">
                             Logout
+                        </mat-list-item>
+                        <mat-list-item *ngIf="!isAuthenticated" routerLink="/login" (click)="togglesideNav(false)">
+                            Login
                         </mat-list-item>
                     </mat-list>
                 </mat-tab>

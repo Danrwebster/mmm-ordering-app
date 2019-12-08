@@ -4,5 +4,6 @@ export enum eFormType {
 	RESET_SUBMIT,
 	SIGNUP,
 	CONFIRM,
-	MFA
+	MFA,
+	SIGNED_IN
 }

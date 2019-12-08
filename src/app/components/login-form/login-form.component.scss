@@ -13,9 +13,13 @@
 
 
     .form-container {
-        margin: 20px 20px 0;
+        margin: 20px;
         display: flex;
         flex-direction: column;
+
+        &.reset {
+            margin-top: 0;
+        }
     }
 
     .flex-container {
