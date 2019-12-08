@@ -88,8 +88,16 @@ export class LoginFormComponent implements OnInit {
 		});
 
 		this.confirmForm = this._formBuilder.group({
-			username: [''], // NEED TO AUTO-FILL WITH EMAIL ENTERED
-			code: ['', Validators.required]
+			email: [
+				{
+					value: '',
+					disabled: true
+				}, Validators.compose(
+				[
+					Validators.required,
+					Validators.email
+				])
+			]
 		});
 
 		this._loading = false;
@@ -148,6 +156,7 @@ export class LoginFormComponent implements OnInit {
 		this._loading = true;
 		this._authenticationService.signIn(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
 			.subscribe(value => {
+				this._loading = false;
 				if (value.error) {
 					switch (value.error.code) {
 						case 'UserNotFoundException':
@@ -160,6 +169,14 @@ export class LoginFormComponent implements OnInit {
 							break;
 						case 'PasswordResetRequiredException':
 							this.loginNavigate(eFormType.RESET_SUBMIT);
+							break;
+						case 'UserNotConfirmedException':
+							this.confirmForm.controls.email.setValue(this.loginForm.controls.username.value);
+							this.loginNavigate(eFormType.CONFIRM);
+							this._snackBar.open('Account Confirmation', 'Pending', {
+								duration: 2000,
+								verticalPosition: 'top'
+							});
 							break;
 						default:
 					}
@@ -324,6 +341,7 @@ export class LoginFormComponent implements OnInit {
 						this._codeDelivery.DeliveryMedium = value.codeDeliveryDetails.DeliveryMedium;
 						this._codeDelivery.Destination = value.codeDeliveryDetails.Destination;
 
+						this.confirmForm.controls.email.setValue(this.signUpForm.controls.email.value);
 						this.loginNavigate(eFormType.CONFIRM);
 					}
 				}
@@ -399,7 +417,7 @@ export class LoginFormComponent implements OnInit {
 
 	public resendConfirmSignUp(): void {
 		this._loading = true;
-		this._authenticationService.resendConfirmSignUp(this.signUpForm.controls.email.value)
+		this._authenticationService.resendConfirmSignUp(this.confirmForm.controls.email.value)
 			.subscribe(value => {
 				this._loading = false;
 

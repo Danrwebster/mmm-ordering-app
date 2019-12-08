@@ -157,11 +157,11 @@
 		<mat-card-title>Confirm Sign up</mat-card-title>
 		<mat-card-content class="confirmation-text">A confirmation email has been sent to the below address.
 		</mat-card-content>
-		<div class="form-container">
+		<form class="form-container" [formGroup]="confirmForm">
 			<mat-form-field>
-				<input matInput value="{{codeDelivery.Destination}}" disabled>
+				<input matInput formControlName="email">
 			</mat-form-field>
-		</div>
+		</form>
 		<div class="flex-container button">
 			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button"
 				(click)="resendConfirmSignUp()">
