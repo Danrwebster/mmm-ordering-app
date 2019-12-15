@@ -1,28 +1,23 @@
 # My Mobile Menu 
-
 This is the code repository for the My Mobile Menu Front-End Application Demo.
 
 ## Development Environment Setup
-1. Clone repository, and run `npm install` from the project root directory.
-2. Run `npm run start` to start a local server without broadcasting the web app external to the system. Run `npm run local` to start a local server that is broadcasted externally to other devices on the LAN.
+1. Clone repository
+1. Run `npm install` from the project root directory.
+2. Run `amplify init` from the product root directory to initialize the amplify installation.
 
 ## Angular CLI Commands
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
 ### Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Run `npm run serve:local` for a dev server that listens to external http requests.
 
 ### Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-### Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
+Run `npm run build:prod` to build the project for production.

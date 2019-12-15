@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "serve:local": "ng serve --host 0.0.0.0",
-    "build": "ng build",
+    "serve": "ng s",
+    "serve:local": "ng s --host 0.0.0.0",
+    "build": "ng b",
+    "build:prod": "ng b --prod --aot=true --buildOptimizer=true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
