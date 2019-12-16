@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, Subject, BehaviorSubject } from 'rxjs';
-import { catchError, retry, map } from 'rxjs/operators';
+import { catchError, retry } from 'rxjs/operators';
 import { IMenu, ICategory, IMenuItemDetails, IModifierGroup } from '@models/menu.model';
 
 @Injectable({
@@ -9,11 +9,11 @@ import { IMenu, ICategory, IMenuItemDetails, IModifierGroup } from '@models/menu
 })
 export class MenuService {
 
-	private _url = 'assets/data/';
-	private _menuItem = <IMenuItemDetails>{};
-	private _showModal = false;
-	public $menuItem = new Subject<IMenuItemDetails>();
-	public $topMenu = new BehaviorSubject<IMenu[]>([]);
+	private _url: string = 'assets/data/';
+	private _menuItem: IMenuItemDetails = <IMenuItemDetails>{};
+	private _showModal: boolean = false;
+	public $menuItem: Subject<IMenuItemDetails> = new Subject<IMenuItemDetails>();
+	public $topMenu: BehaviorSubject<IMenu[]> = new BehaviorSubject<IMenu[]>([]);
 
 	constructor(
 		private _http: HttpClient

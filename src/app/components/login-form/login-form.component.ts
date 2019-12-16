@@ -1,16 +1,18 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthenticationService } from '@services/authentication.service';
 import { eFormType } from 'src/app/shared/constants';
 import { ICodeDeliveryDetails } from '@models/authentication.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ICredentials } from '@aws-amplify/core';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-login-form',
 	templateUrl: './login-form.component.html',
 	styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent implements OnInit, OnDestroy {
 
 	@Output() login = new EventEmitter<boolean>();
 
@@ -19,8 +21,11 @@ export class LoginFormComponent implements OnInit {
 	public passwordForm: FormGroup;
 	public passwordResetForm: FormGroup;
 	public confirmForm: FormGroup;
+
+	private _subscription: Subscription = new Subscription();
 	private _hide: boolean = true;
-	private _loading: boolean;
+	private _loading: boolean = false;
+	private _guestLoading: boolean = false;
 	private _codeDelivery = <ICodeDeliveryDetails>{
 		AttributeName: '',
 		DeliveryMedium: '',
@@ -93,14 +98,16 @@ export class LoginFormComponent implements OnInit {
 					value: '',
 					disabled: true
 				}, Validators.compose(
-				[
-					Validators.required,
-					Validators.email
-				])
+					[
+						Validators.required,
+						Validators.email
+					])
 			]
 		});
+	}
 
-		this._loading = false;
+	ngOnDestroy() {
+		this._subscription.unsubscribe();
 	}
 
 	public get hide(): boolean {
@@ -113,6 +120,10 @@ export class LoginFormComponent implements OnInit {
 
 	public get loading(): boolean {
 		return this._loading;
+	}
+
+	public get guestLoading(): boolean {
+		return this._guestLoading;
 	}
 
 	public resetForms(): void {
@@ -152,9 +163,30 @@ export class LoginFormComponent implements OnInit {
 		}
 	}
 
+	public guestSignIn(): void {
+		this._guestLoading = true;
+
+		if (this._authenticationService.isGuest) {
+			this.login.emit(true);
+		} else {
+			this._subscription.add(this._authenticationService.guestAccess().subscribe(value => {
+				this._guestLoading = false;
+				if (value.error) {
+					this._snackBar.open('Unable to create Guest', 'Error', {
+						duration: 2000,
+						verticalPosition: 'top'
+					});
+				} else {
+					this._authenticationService.setGuestCredentials(value);
+					this.login.emit(true);
+				}
+			}));
+		}
+	}
+
 	public signIn(): void {
 		this._loading = true;
-		this._authenticationService.signIn(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
+		this._subscription.add(this._authenticationService.signIn(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
 			.subscribe(value => {
 				this._loading = false;
 				if (value.error) {
@@ -192,7 +224,7 @@ export class LoginFormComponent implements OnInit {
 						this.login.emit(true);
 					}
 				}
-			});
+			}));
 	}
 
 	public get enableSignIn(): boolean {
@@ -315,7 +347,7 @@ export class LoginFormComponent implements OnInit {
 			this.signUpForm.controls.phone_number.setValue(phoneNumber);
 		}
 
-		this._authenticationService.signUp(
+		this._subscription.add(this._authenticationService.signUp(
 			this.signUpForm.controls.given_name.value,
 			this.signUpForm.controls.family_name.value,
 			this.signUpForm.controls.password.value,
@@ -345,12 +377,12 @@ export class LoginFormComponent implements OnInit {
 						this.loginNavigate(eFormType.CONFIRM);
 					}
 				}
-			});
+			}));
 	}
 
 	public requestReset(): void {
 		this._loading = true;
-		this._authenticationService.forgotPassword(this.passwordForm.controls.email.value)
+		this._subscription.add(this._authenticationService.forgotPassword(this.passwordForm.controls.email.value)
 			.subscribe(value => {
 				this._loading = false;
 
@@ -377,12 +409,12 @@ export class LoginFormComponent implements OnInit {
 						}
 					}
 				}
-			});
+			}));
 	}
 
 	public submitResetPassword(): void {
 		this._loading = true;
-		this._authenticationService.forgotPasswordSubmit(
+		this._subscription.add(this._authenticationService.forgotPasswordSubmit(
 			this.passwordForm.controls.email.value,
 			this.passwordResetForm.controls.code.value,
 			this.passwordResetForm.controls.password.value)
@@ -412,12 +444,12 @@ export class LoginFormComponent implements OnInit {
 						verticalPosition: 'top'
 					});
 				}
-			});
+			}));
 	}
 
 	public resendConfirmSignUp(): void {
 		this._loading = true;
-		this._authenticationService.resendConfirmSignUp(this.confirmForm.controls.email.value)
+		this._subscription.add(this._authenticationService.resendConfirmSignUp(this.confirmForm.controls.email.value)
 			.subscribe(value => {
 				this._loading = false;
 
@@ -432,7 +464,7 @@ export class LoginFormComponent implements OnInit {
 						verticalPosition: 'top'
 					});
 				}
-			});
+			}));
 	}
 
 	public get formType(): eFormType {

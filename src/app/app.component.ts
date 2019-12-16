@@ -49,49 +49,45 @@ export class AppComponent implements OnInit, OnDestroy {
 		this._showModal = false;
 		this._menuService.initialize();
 
-		const authSub = this._amplifySerivce.authStateChange$.subscribe(value => {
+		this._subscription.add(this._amplifySerivce.authStateChange$.subscribe(value => {
 			this._authenticated = (value.state === 'signedIn') ? true : false;
-		});
-		this._subscription.add(authSub);
+		}));
 
-		const itemSub = this._menuService.$menuItem
+		this._subscription.add(this._menuService.$menuItem
 			.subscribe(value => {
 				this._menuItem = value;
 				this._showModal = true;
 				this._renderer.addClass(document.body, 'noScroll');
 				this._menuService.showModal = true;
-			});
-		this._subscription.add(itemSub);
+			}));
 
-		const tabItemSub = this._ticketService.$tab.subscribe(value => {
+
+
+		this._subscription.add(this._ticketService.$tab.subscribe(value => {
 			if (value.items.length > 0) {
 				this._snackBar.open('Item Order', 'Success', {
 					duration: 2000,
 					verticalPosition: 'top'
 				});
 			}
-		});
-		this._subscription.add(tabItemSub);
+		}));
 
-		const callSub = this._callService.$callSent.subscribe(() => {
+		this._subscription.add(this._callService.$callSent.subscribe(() => {
 			this._snackBar.open('Message Server', 'Success', {
 				duration: 2000,
 				verticalPosition: 'top'
 			});
-		});
-		this._subscription.add(callSub);
+		}));
 
-		const modalSub = this._modalService.$showModal.subscribe(value => {
+		this._subscription.add(this._modalService.$showModal.subscribe(value => {
 			this._showConfigModal = value;
-		});
-		this._subscription.add(modalSub);
+		}));
 
-		const menuSub = this._menuService.$topMenu.subscribe(value => {
+		this._subscription.add(this._menuService.$topMenu.subscribe(value => {
 			if (value.length > 0) {
 				this._topMenu = value;
 			}
-		});
-		this._subscription.add(menuSub);
+		}));
 	}
 
 	ngOnDestroy() {

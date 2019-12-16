@@ -1,7 +1,7 @@
 @import "variables";
 @import "mixins";
 
-#container {
+#category-container {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
         background: transparent;
 
         mat-expansion-panel-header {
-            font-size: 26px;
+            font-size: 20px;
         }
 
         mat-list-item {
@@ -90,7 +90,7 @@ mat-accordion, app-daily-special-item {
 }
 
 ::ng-deep {
-    #container {
+    #category-container {
         .mat-list-item-content {
             padding: 0 5px;
         }

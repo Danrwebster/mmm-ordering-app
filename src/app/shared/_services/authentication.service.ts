@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, tap, catchError } from 'rxjs/operators';
-import { of, Observable, BehaviorSubject, from } from 'rxjs';
+import { of, Observable, BehaviorSubject, from, Subject } from 'rxjs';
 import Amplify, { Auth } from 'aws-amplify';
-import { AWS_REGION, AWS_USER_POOL_ID, AWS_USER_POOL_WEB_CLIENT_ID } from '@configs/cognito.config';
+import { AWS_REGION, AWS_USER_POOL_ID, AWS_USER_POOL_WEB_CLIENT_ID, AWS_IDENTITY_POOL } from '@configs/cognito.config';
 import { eFormType } from '../constants';
+import { ICredentials } from '@aws-amplify/core';
 
 class MyStorage {
 	static syncPromise = null;
@@ -13,10 +14,8 @@ class MyStorage {
 		switch (key.split('.').length) {
 			case 4:
 				return key.split('.')[2] + '.' + key.split('.')[3];
-				break;
 			case 3:
 				return key.split('.')[2];
-				break;
 			default:
 				return key;
 		}
@@ -46,19 +45,26 @@ class MyStorage {
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
-	public loggedIn$ = new BehaviorSubject<boolean>(false);
 	private _loginFormState: eFormType = eFormType.LOGIN;
+	private _guestCredentials: ICredentials = null;
+
+	public $guestCredentials = new Subject<ICredentials>();
+	public loggedIn$ = new BehaviorSubject<boolean>(false);
 
 	constructor(
 		private router: Router
 	) {
 		Amplify.configure({
 			Auth: {
+				// REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
+				identityPoolId: AWS_IDENTITY_POOL,
+
 				// REQUIRED - Amazon Cognito Region
 				region: AWS_REGION,
 
-				// OPTIONAL - Sets custom storage options for tokens
-				storage: MyStorage,
+				// OPTIONAL - Amazon Cognito Federated Identity Pool Region
+				// Required only if it's different from Amazon Cognito Region
+				identityPoolRegion: AWS_REGION,
 
 				// OPTIONAL - Amazon Cognito User Pool ID
 				userPoolId: AWS_USER_POOL_ID,
@@ -68,8 +74,27 @@ export class AuthenticationService {
 
 				// OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
 				mandatorySignIn: false,
+
+				// OPTIONAL - Sets custom storage options for tokens
+				storage: MyStorage,
 			}
 		});
+	}
+
+	// guest access request
+	public guestAccess(): Observable<any> {
+		return from(Auth.currentCredentials())
+			.pipe(
+				catchError(error => {
+					return of({ error: error });
+				})
+			);
+	}
+
+	// set guest credentials
+	public setGuestCredentials(credentials: ICredentials) {
+		this._guestCredentials = credentials;
+		this.$guestCredentials.next(this._guestCredentials);
 	}
 
 	// signup
@@ -120,7 +145,11 @@ export class AuthenticationService {
 	public signIn(userName: string, password: string): Observable<any> {
 		return from(Auth.signIn(userName, password))
 			.pipe(
-				tap(() => this.loggedIn$.next(true)),
+				tap(() => {
+					this.loggedIn$.next(true);
+					this._guestCredentials = null;
+					this.$guestCredentials.next(this._guestCredentials);
+				}),
 				catchError(error => {
 					this.loggedIn$.next(false);
 					return of({ error: error });
@@ -152,32 +181,39 @@ export class AuthenticationService {
 	public isAuthenticated(): Observable<boolean> {
 		return from(Auth.currentAuthenticatedUser())
 			.pipe(
-				map(result => {
+				map(() => {
 					this.loggedIn$.next(true);
 					return true;
 				}),
-				catchError(error => {
+				catchError(() => {
 					this.loggedIn$.next(false);
 					return of(false);
 				})
 			);
 	}
 
+	public isGuest(): boolean {
+		return this._guestCredentials !== null;
+	}
+
 	/** signout */
 	public signOut() {
 		from(Auth.signOut())
-			.subscribe(
-				result => {
-					this.loggedIn$.next(false);
-					this.router.navigate(['/login']);
-				},
+			.subscribe(() => {
+				this.loggedIn$.next(false);
+				this.router.navigate(['/login']);
+			},
 				error => console.log(error)
 			);
 	}
 
 	public getAccessToken(): string {
-		const accessToken = MyStorage.getItem(`${MyStorage.getItem('LastAuthUser')}` + '.accessToken');
-		return accessToken;
+		if (this._guestCredentials) {
+			return this._guestCredentials.sessionToken;
+		} else {
+			const accessToken = MyStorage.getItem(`${MyStorage.getItem('LastAuthUser')}` + '.accessToken');
+			return accessToken;
+		}
 	}
 
 	public get loginFormState(): eFormType {

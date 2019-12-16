@@ -18,8 +18,13 @@
 		</form>
 
 		<form class="flex-container button" [formGroup]="loginForm" (ngSubmit)="signIn()">
-			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button" routerLink="/topMenu">
-				Guest
+			<button class="mat-elevation-z2" mat-flat-button color="primary" type="button" (click)="guestSignIn()">
+				<ng-container *ngIf="!guestLoading">
+					Guest
+				</ng-container>
+				<ng-container *ngIf="guestLoading">
+					<mat-spinner [diameter]="'20'" color="accent"></mat-spinner>
+				</ng-container>
 			</button>
 			<button class="mat-elevation-z2" mat-flat-button color="accent" [disabled]="!enableSignIn" type="submit">
 				<ng-container *ngIf="!loading">

@@ -1,4 +1,5 @@
 {
-    "useProfile": true,
-    "profileName": "DevTest"
+    "configLevel": "project",
+    "useProfile": false,
+    "awsConfigFilePath": "/Users/danwebster/.amplify/awscloudformation/m3u3c5o65O"
 }
